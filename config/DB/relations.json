@@ -1,0 +1,20 @@
+{
+    "phase_1" : [
+        {
+            "parent_event_id" : 2,
+            "option1_child_event_id" : [3] 
+        }
+    ],
+    "phase_2" : [
+        {
+            "parent_event_id" : 0,
+            "option1_child_event_id" : [] 
+        }
+    ],
+    "phase_3" : [
+        {
+            "parent_event_id" : 0,
+            "option1_child_event_id" : [] 
+        }
+    ]
+}
