@@ -3,6 +3,11 @@
         <v-row>
             <v-col> Level - {{ id }} </v-col>
         </v-row>
+        <v-row>
+            <v-col>
+                
+            </v-col>
+        </v-row>
     </v-container>
 </template>
 <script>

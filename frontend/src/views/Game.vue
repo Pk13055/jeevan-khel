@@ -3,36 +3,16 @@
         <v-row>
             <Level :data="level" />
         </v-row>
-        <v-row justify="start">
-            <v-spacer v-for="id in Array(this.loc)" :key="id"></v-spacer>
-            <div class="spacing">
-                <v-img
-                    :src="require('../assets/boy.png')"
-                    height="100"
-                    contain
-                />
-            </div>
-            <v-spacer v-for="id in Array(8 - this.loc)" :key="id"></v-spacer>
-        </v-row>
-        <v-row justify="space-around">
-            <div
-                v-for="id in Array(8)
-                    .fill()
-                    .map((x, i) => i)"
-                :key="id"
-                @click="currentTile(id)"
-                :id="id"
-                class="tile"
-            ></div>
-        </v-row>
+        <Conveyor :loc="loc" />
     </v-container>
 </template>
 
 <script>
 import Level from '../components/Level.vue';
+import Conveyor from '../components/Conveyor.vue';
 export default {
     name: 'Game',
-    components: { Level },
+    components: { Level, Conveyor },
     data: () => ({
         loc: 0,
         level: {
@@ -52,26 +32,3 @@ export default {
     },
 };
 </script>
-<style scoped>
-.spacing {
-    margin-left: 1%;
-    margin-right: 1%;
-    padding-left: 4%;
-    width: auto;
-    padding-right: 4%;
-}
-.tile {
-    padding-left: 4%;
-    padding-right: 4%;
-    padding-top: 2%;
-    padding-bottom: 2%;
-    margin-left: 1%;
-    margin-right: 1%;
-    height: 50%;
-    width: 10%;
-    background-color: grey;
-    transform: skewX(-20deg);
-    -ms-transform: skewX(-20deg);
-    -webkit-transform: skewX(-20deg);
-}
-</style>
