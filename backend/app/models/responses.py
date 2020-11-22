@@ -1,7 +1,7 @@
 from typing import Optional, List, Dict, Union
 
 from .base import Base
-from .user import User
+from .user import State
 
 
 class ResponseBase(Base):
@@ -10,14 +10,5 @@ class ResponseBase(Base):
     data: Optional[Union[List, Dict[str, str]]]
 
 
-class UserInResponse(ResponseBase):
-    data: User
-
-
-class UsersInResponse(ResponseBase):
-    data: List[User] = list()
-
-
-class TokenResponse(Base):
-    access_token: str
-    token_type: str = 'bearer'
+class StateInResponse(ResponseBase):
+    data: State
