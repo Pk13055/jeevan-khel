@@ -4,40 +4,44 @@
         "description": "You need to help pay for your younger brother's school fees. How much do you pay? (Other family members will pay the rest)",
         "options": [
             {
-                "description": "Pay \u20b95000",
+                "description": "Pay ₹5000",
                 "action": {
                     "expenditure": 0.0,
                     "debt": 0.0,
-                    "current": 0.0,
+                    "current": -5000.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI": "../../frontend/public/audio/options/event_1_option_1.mp3"
+                },
                 "translation": {
-                    "hi": "\u20b95000 \u092d\u0930\u0947\u0902"
+                    "HI": "₹5000 भरें"
                 }
             },
             {
-                "description": "Pay \u20b910000",
+                "description": "Pay ₹10000",
                 "action": {
                     "expenditure": 0.0,
                     "debt": 0.0,
-                    "current": 0.0,
+                    "current": -10000.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI": "../../frontend/public/audio/options/event_1_option_2.mp3"
+                },
                 "translation": {
-                    "hi": "\u20b910000 \u092d\u0930\u0947\u0902"
+                    "HI": "₹10000 भरें"
                 }
             }
         ],
         "probability": 0.6,
         "phase": 1,
         "translation": {
-            "HI": "\u0906\u092a\u0915\u094b \u0905\u092a\u0928\u0947 \u091b\u094b\u091f\u0947 \u092d\u093e\u0908 \u0915\u0947 \u0938\u094d\u0915\u0942\u0932 \u0915\u0940 \u092b\u0940\u0938 \u092d\u0930\u0928\u0947 \u092e\u0947\u0902 \u092e\u0926\u0926 \u0915\u0930\u0928\u0940 \u0939\u094b\u0917\u0940\u0964 \u0906\u092a \u0915\u093f\u0924\u0928\u0947 \u092a\u0948\u0938\u0947 \u0926\u0947\u0924\u0947 \u0939\u0948\u0902? (\u092a\u0930\u093f\u0935\u093e\u0930 \u0915\u0947 \u0905\u0928\u094d\u092f \u0938\u0926\u0938\u094d\u092f \u092c\u093e\u0915\u0940 \u0915\u0940 \u092b\u0940\u0938 \u092d\u0930\u0947\u0902\u0917\u0947)"
+            "HI": "आपको अपने छोटे भाई के स्कूल की फीस भरने में मदद करनी होगी। आप कितने पैसे देते हैं? (परिवार के अन्य सदस्य बाकी की फीस भरेंगे)"
         },
-        "image": "/path/to/image",
+        "image": "../../frontend/public/images/event_1.png",
         "audio": {
-            "HI": "..."
+            "HI": "../../frontend/public/audio/desc/event_1.mp3"
         },
         "title": "You need to help pay for your younger brother's school fees. How much do you pay? (Other family members will pay the rest)"
     },
@@ -51,10 +55,14 @@
                     "expenditure": 0.0,
                     "debt": 0.0,
                     "current": 0.0,
-                    "events": []
+                    "events": [3]
                 },
-                "audio": {},
-                "translation": {}
+                "audio": {
+                    "HI": "../../frontend/public/audio/options/event_2_option_1.mp3"
+                },
+                "translation": {
+                    "HI": "हाँ"
+                }
             },
             {
                 "description": "Refuse",
@@ -62,20 +70,24 @@
                     "expenditure": 0.0,
                     "debt": 0.0,
                     "current": 0.0,
-                    "events": []
+                    "events": [3]
                 },
-                "audio": {},
-                "translation": {}
+                "audio": {
+                    "HI": "../../frontend/public/audio/options/event_2_option_2.mp3"
+                },
+                "translation": {
+                    "HI": "नहीं"
+                }
             }
         ],
         "probability": 0.7,
         "phase": 1,
         "translation": {
-            "HI": "..."
+            "HI": "आपको बेहतर तनख़्वाह के साथ दूसरे शहर में नौकरी का प्रस्ताव मिलता है। क्या आप प्रस्ताव स्वीकार करते हैं?"
         },
-        "image": "/path/to/image",
+        "image": "../../frontend/public/images/event_2.png",
         "audio": {
-            "HI": "..."
+            "HI": "../../frontend/public/audio/desc/event_2.mp3"
         },
         "title": "You get a job offer in another city, with better pay. Do you accept the offer?"
     },
@@ -109,7 +121,7 @@
         "probability": 0.0,
         "phase": 1,
         "translation": {
-            "HI": "\u0906\u092a \u0907\u0938 \u0928\u090f \u0936\u0939\u0930 \u092e\u0947\u0902 \u0930\u0939\u0928\u0947 \u0915\u0947 \u0932\u093f\u090f \u091c\u0917\u0939 \u0922\u0942\u0901\u095d\u0924\u0947 \u0939\u0948\u0902\u0964 \u0906\u092a\u0915\u0947 \u092a\u093e\u0938 2 \u0935\u093f\u0915\u0932\u094d\u092a \u0939\u0948\u0902: \u0928\u0902\u092c\u0930 1. \u0915\u093f\u0930\u093e\u092f\u093e \u092a\u094d\u0930\u0924\u093f \u092e\u093e\u0939 4000 \u0930\u0941\u092a\u092f\u0947; 2 \u0905\u0928\u094d\u092f \u0932\u094b\u0917\u094b\u0902 \u0915\u0947 \u0938\u093e\u0925 \u0938\u093e\u091d\u093e \u0915\u093f\u092f\u093e; \u0906\u0928\u0947-\u091c\u093e\u0928\u0947 \u0915\u093e \u0916\u0930\u094d\u091a \u092a\u094d\u0930\u0924\u093f\u0926\u093f\u0928 20 \u0930\u0941\u092a\u092f\u0947 \u0939\u094b\u0917\u093e\u0964 \u0928\u0902\u092c\u0930 2. \u0915\u093f\u0930\u093e\u092f\u093e 2000 \u0930\u0941\u092a\u092f\u0947 \u092a\u094d\u0930\u0924\u093f \u092e\u093e\u0939; 4 \u0905\u0928\u094d\u092f \u0932\u094b\u0917\u094b\u0902 \u0915\u0947 \u0938\u093e\u0925 \u0938\u093e\u091d\u093e \u0915\u093f\u092f\u093e; \u0906\u0928\u0947-\u091c\u093e\u0928\u0947 \u0915\u093e \u0916\u0930\u094d\u091a \u092a\u094d\u0930\u0924\u093f\u0926\u093f\u0928 40 \u0930\u0941\u092a\u092f\u0947 \u0939\u094b\u0917\u093e\u0964 \u0906\u092a \u0915\u094c\u0928 \u0938\u093e \u0935\u093f\u0915\u0932\u094d\u092a \u091a\u0941\u0928\u0924\u0947 \u0939\u0948\u0902?"
+            "HI": "आप इस नए शहर में रहने के लिए जगह ढूँढ़ते हैं। आपके पास 2 विकल्प हैं: नंबर 1. किराया प्रति माह 4000 रुपये; 2 अन्य लोगों के साथ साझा किया; आने-जाने का खर्च प्रतिदिन 20 रुपये होगा। नंबर 2. किराया 2000 रुपये प्रति माह; 4 अन्य लोगों के साथ साझा किया; आने-जाने का खर्च प्रतिदिन 40 रुपये होगा। आप कौन सा विकल्प चुनते हैं?"
         },
         "image": "/path/to/image",
         "audio": {
@@ -131,7 +143,7 @@
                 },
                 "audio": {},
                 "translation": {
-                    "hi": "\u0936\u093e\u0926\u0940 \u0915\u0930\u0928\u0947 \u0915\u0947 \u0932\u093f\u090f \u0938\u0939\u092e\u0924 (\u0906\u092a\u0915\u094b \u0905\u092a\u0928\u0940 \u0913\u0930 \u0938\u0947 2 \u0932\u093e\u0916 \u0930\u0941\u092a\u092f\u0947 \u0916\u0930\u094d\u091a \u0915\u0930\u0928\u0947 \u0939\u094b\u0902\u0917\u0947)"
+                    "HI": "शादी करने के लिए सहमत (आपको अपनी ओर से 2 लाख रुपये खर्च करने होंगे)"
                 }
             },
             {
@@ -144,14 +156,14 @@
                 },
                 "audio": {},
                 "translation": {
-                    "hi": "\u092c\u093e\u0926 \u092e\u0947\u0902 \u0915\u0930\u0947\u0902\u0917\u0947"
+                    "HI": "बाद में करेंगे"
                 }
             }
         ],
         "probability": 1.0,
         "phase": 1,
         "translation": {
-            "HI": "\u0906\u092a\u0915\u0947 \u092a\u0930\u093f\u0935\u093e\u0930 \u0915\u0947 \u0938\u0926\u0938\u094d\u092f \u0906\u092a\u0915\u094b \u0936\u093e\u0926\u0940 \u0915\u0930\u0928\u0947 \u0915\u0947 \u0932\u093f\u090f \u092e\u0928\u093e\u0928\u0947 \u0915\u0940 \u0915\u094b\u0936\u093f\u0936 \u0915\u0930\u0924\u0947 \u0939\u0948\u0902\u0964 \u0906\u092a \u0915\u094d\u092f\u093e \u0915\u0930\u0924\u0947 \u0939\u0948\u0902?"
+            "HI": "आपके परिवार के सदस्य आपको शादी करने के लिए मनाने की कोशिश करते हैं। आप क्या करते हैं?"
         },
         "image": "/path/to/image",
         "audio": {
@@ -160,7 +172,7 @@
         "title": "Your family members try to convince you to get married. What do you do?"
     },
     {
-        "id": 1,
+        "id": 5,
         "description": "You get married. How much do you spend on the wedding from your end?",
         "options": [
             {
@@ -198,7 +210,7 @@
         "title": "You get married. How much do you spend on the wedding from your end?"
     },
     {
-        "id": 2,
+        "id": 6,
         "description": "You have kids",
         "options": [
             {
@@ -227,7 +239,7 @@
         "probability": 1.0,
         "phase": 2,
         "translation": {
-            "HI": "\u0906\u092a\u0915\u0947 \u092c\u091a\u094d\u091a\u0947 \u0939\u094b\u0924\u0947 \u0939\u0948|"
+            "HI": "आपके बच्चे होते है|"
         },
         "image": "/path/to/image",
         "audio": {
@@ -236,7 +248,7 @@
         "title": "You have kids"
     },
     {
-        "id": 3,
+        "id": 7,
         "description": "Your eyesight gets weaker",
         "options": [
             {
@@ -274,7 +286,7 @@
         "title": "Your eyesight gets weaker"
     },
     {
-        "id": 4,
+        "id": 8,
         "description": "The paint on the walls of your house is peeling off because of leakages.",
         "options": [
             {
@@ -323,7 +335,7 @@
         "title": "The paint on the walls of your house is peeling off because of leakages."
     },
     {
-        "id": 1,
+        "id": 9,
         "description": "You have had a painful backache for a while, but you need to go to work and do not have paid leave. What do you do?",
         "options": [
             {
@@ -361,7 +373,7 @@
         "title": "You have had a painful backache for a while, but you need to go to work and do not have paid leave. What do you do?"
     },
     {
-        "id": 2,
+        "id": 10,
         "description": "A tap in your bathroom is leaky.",
         "options": [
             {
@@ -399,7 +411,7 @@
         "title": "A tap in your bathroom is leaky."
     },
     {
-        "id": 3,
+        "id": 11,
         "description": "Your brother is getting married. How much do you contribute towards the wedding?",
         "options": [
             {
@@ -437,7 +449,7 @@
         "title": "Your brother is getting married. How much do you contribute towards the wedding?"
     },
     {
-        "id": 4,
+        "id": 12,
         "description": "Your child's birthday is coming up, and they ask you for an expensive toy.",
         "options": [
             {
@@ -475,7 +487,7 @@
         "title": "Your child's birthday is coming up, and they ask you for an expensive toy."
     },
     {
-        "id": 5,
+        "id": 13,
         "description": "Your child has been struggling at school.",
         "options": [
             {
@@ -513,7 +525,7 @@
         "title": "Your child has been struggling at school."
     },
     {
-        "id": 1,
+        "id": 14,
         "description": "You have a back injury and have to be hospitalized.",
         "options": [
             {
@@ -540,7 +552,7 @@
         "title": "You have a back injury and have to be hospitalized."
     },
     {
-        "id": 2,
+        "id": 15,
         "description": "Your ageing mother comes over to stay with you for a while. The bathroom floor is wet and slippery, which causes her to slip and fall. She needs to be hospitalized.",
         "options": [
             {
@@ -567,7 +579,7 @@
         "title": "Your ageing mother comes over to stay with you for a while. The bathroom floor is wet and slippery, which causes her to slip and fall. She needs to be hospitalized."
     },
     {
-        "id": 3,
+        "id": 16,
         "description": "Your child's clothes are getting tight and worn out; they need new clothes.",
         "options": [
             {
@@ -605,7 +617,7 @@
         "title": "Your child's clothes are getting tight and worn out; they need new clothes."
     },
     {
-        "id": 4,
+        "id": 17,
         "description": "You need a cataract surgery.",
         "options": [
             {
@@ -632,7 +644,7 @@
         "title": "You need a cataract surgery."
     },
     {
-        "id": 1,
+        "id": 18,
         "description": "You receive a call from a person who claims that they're from the bank, and that your account will be frozen unless you provide your bank details.",
         "options": [
             {
@@ -675,7 +687,7 @@
         "title": "You receive a call from a person who claims that they're from the bank, and that your account will be frozen unless you provide your bank details."
     },
     {
-        "id": 2,
+        "id": 19,
         "description": "A group of people from your neighbourhood have been collectively investing their money in a scheme that promises a higher interest rate than schemes available at banks. They ask you to join them. What do you do?",
         "options": [
             {
@@ -718,7 +730,7 @@
         "title": "A group of people from your neighbourhood have been collectively investing their money in a scheme that promises a higher interest rate than schemes available at banks. They ask you to join them. What do you do?"
     },
     {
-        "id": 3,
+        "id": 20,
         "description": "The neighbourhood scheme was a fraud, you lose all the money which you had invested.",
         "options": [
             {
@@ -750,7 +762,7 @@
         "title": "The neighbourhood scheme was a fraud, you lose all the money which you had invested."
     },
     {
-        "id": 4,
+        "id": 21,
         "description": "You have been attacked by a thief! What do you do?",
         "options": [
             {
@@ -763,7 +775,7 @@
                 },
                 "audio": {},
                 "translation": {
-                    "hi": "\u092a\u0948\u0938\u0947 \u0938\u094c\u0902\u092a \u0926\u094b"
+                    "HI": "\u092a\u0948\u0938\u0947 \u0938\u094c\u0902\u092a \u0926\u094b"
                 }
             },
             {
@@ -776,7 +788,7 @@
                 },
                 "audio": {},
                 "translation": {
-                    "hi": "\u0932\u0921\u093c\u0928\u0947 \u092f\u093e \u092d\u093e\u0917\u0928\u0947 \u0915\u0940 \u0915\u094b\u0936\u093f\u0936 \u0915\u0930\u0947\u0902"
+                    "HI": "\u0932\u0921\u093c\u0928\u0947 \u092f\u093e \u092d\u093e\u0917\u0928\u0947 \u0915\u0940 \u0915\u094b\u0936\u093f\u0936 \u0915\u0930\u0947\u0902"
                 }
             }
         ],
