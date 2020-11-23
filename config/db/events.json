@@ -1,0 +1,799 @@
+[
+    {
+        "id": 1,
+        "description": "You need to help pay for your younger brother's school fees. How much do you pay? (Other family members will pay the rest)",
+        "options": [
+            {
+                "description": "Pay \u20b95000",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {
+                    "hi": "\u20b95000 \u092d\u0930\u0947\u0902"
+                }
+            },
+            {
+                "description": "Pay \u20b910000",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {
+                    "hi": "\u20b910000 \u092d\u0930\u0947\u0902"
+                }
+            }
+        ],
+        "probability": 0.6,
+        "phase": 1,
+        "translation": {
+            "HI": "\u0906\u092a\u0915\u094b \u0905\u092a\u0928\u0947 \u091b\u094b\u091f\u0947 \u092d\u093e\u0908 \u0915\u0947 \u0938\u094d\u0915\u0942\u0932 \u0915\u0940 \u092b\u0940\u0938 \u092d\u0930\u0928\u0947 \u092e\u0947\u0902 \u092e\u0926\u0926 \u0915\u0930\u0928\u0940 \u0939\u094b\u0917\u0940\u0964 \u0906\u092a \u0915\u093f\u0924\u0928\u0947 \u092a\u0948\u0938\u0947 \u0926\u0947\u0924\u0947 \u0939\u0948\u0902? (\u092a\u0930\u093f\u0935\u093e\u0930 \u0915\u0947 \u0905\u0928\u094d\u092f \u0938\u0926\u0938\u094d\u092f \u092c\u093e\u0915\u0940 \u0915\u0940 \u092b\u0940\u0938 \u092d\u0930\u0947\u0902\u0917\u0947)"
+        },
+        "image": "/path/to/image",
+        "audio": {
+            "HI": "..."
+        },
+        "title": "You need to help pay for your younger brother's school fees. How much do you pay? (Other family members will pay the rest)"
+    },
+    {
+        "id": 2,
+        "description": "You get a job offer in another city, with better pay. Do you accept the offer?",
+        "options": [
+            {
+                "description": "Accept the offer",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {}
+            },
+            {
+                "description": "Refuse",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {}
+            }
+        ],
+        "probability": 0.7,
+        "phase": 1,
+        "translation": {
+            "HI": "..."
+        },
+        "image": "/path/to/image",
+        "audio": {
+            "HI": "..."
+        },
+        "title": "You get a job offer in another city, with better pay. Do you accept the offer?"
+    },
+    {
+        "id": 3,
+        "description": "You look for a place to stay in this new city. You have 2 options: Number 1. Rent Rs 4000 per month; shared with 2 other people; commuting will cost 20 Rs per day. Number 2. Rent Rs 2000 per month; shared with 4 other people; commuting will cost 40 Rs per day. Which option do you choose?",
+        "options": [
+            {
+                "description": "Option 1",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {}
+            },
+            {
+                "description": "Option 2",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {}
+            }
+        ],
+        "probability": 0.0,
+        "phase": 1,
+        "translation": {
+            "HI": "\u0906\u092a \u0907\u0938 \u0928\u090f \u0936\u0939\u0930 \u092e\u0947\u0902 \u0930\u0939\u0928\u0947 \u0915\u0947 \u0932\u093f\u090f \u091c\u0917\u0939 \u0922\u0942\u0901\u095d\u0924\u0947 \u0939\u0948\u0902\u0964 \u0906\u092a\u0915\u0947 \u092a\u093e\u0938 2 \u0935\u093f\u0915\u0932\u094d\u092a \u0939\u0948\u0902: \u0928\u0902\u092c\u0930 1. \u0915\u093f\u0930\u093e\u092f\u093e \u092a\u094d\u0930\u0924\u093f \u092e\u093e\u0939 4000 \u0930\u0941\u092a\u092f\u0947; 2 \u0905\u0928\u094d\u092f \u0932\u094b\u0917\u094b\u0902 \u0915\u0947 \u0938\u093e\u0925 \u0938\u093e\u091d\u093e \u0915\u093f\u092f\u093e; \u0906\u0928\u0947-\u091c\u093e\u0928\u0947 \u0915\u093e \u0916\u0930\u094d\u091a \u092a\u094d\u0930\u0924\u093f\u0926\u093f\u0928 20 \u0930\u0941\u092a\u092f\u0947 \u0939\u094b\u0917\u093e\u0964 \u0928\u0902\u092c\u0930 2. \u0915\u093f\u0930\u093e\u092f\u093e 2000 \u0930\u0941\u092a\u092f\u0947 \u092a\u094d\u0930\u0924\u093f \u092e\u093e\u0939; 4 \u0905\u0928\u094d\u092f \u0932\u094b\u0917\u094b\u0902 \u0915\u0947 \u0938\u093e\u0925 \u0938\u093e\u091d\u093e \u0915\u093f\u092f\u093e; \u0906\u0928\u0947-\u091c\u093e\u0928\u0947 \u0915\u093e \u0916\u0930\u094d\u091a \u092a\u094d\u0930\u0924\u093f\u0926\u093f\u0928 40 \u0930\u0941\u092a\u092f\u0947 \u0939\u094b\u0917\u093e\u0964 \u0906\u092a \u0915\u094c\u0928 \u0938\u093e \u0935\u093f\u0915\u0932\u094d\u092a \u091a\u0941\u0928\u0924\u0947 \u0939\u0948\u0902?"
+        },
+        "image": "/path/to/image",
+        "audio": {
+            "HI": "..."
+        },
+        "title": "You look for a place to stay in this new city. You have 2 options: Number 1. Rent Rs 4000 per month; shared with 2 other people; commuting will cost 20 Rs per day. Number 2. Rent Rs 2000 per month; shared with 4 other people; commuting will cost 40 Rs per day. Which option do you choose?"
+    },
+    {
+        "id": 4,
+        "description": "Your family members try to convince you to get married. What do you do?",
+        "options": [
+            {
+                "description": "Agree to get married (You have to spend Rs 2 lakh on your part)",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {
+                    "hi": "\u0936\u093e\u0926\u0940 \u0915\u0930\u0928\u0947 \u0915\u0947 \u0932\u093f\u090f \u0938\u0939\u092e\u0924 (\u0906\u092a\u0915\u094b \u0905\u092a\u0928\u0940 \u0913\u0930 \u0938\u0947 2 \u0932\u093e\u0916 \u0930\u0941\u092a\u092f\u0947 \u0916\u0930\u094d\u091a \u0915\u0930\u0928\u0947 \u0939\u094b\u0902\u0917\u0947)"
+                }
+            },
+            {
+                "description": "Will do it later",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {
+                    "hi": "\u092c\u093e\u0926 \u092e\u0947\u0902 \u0915\u0930\u0947\u0902\u0917\u0947"
+                }
+            }
+        ],
+        "probability": 1.0,
+        "phase": 1,
+        "translation": {
+            "HI": "\u0906\u092a\u0915\u0947 \u092a\u0930\u093f\u0935\u093e\u0930 \u0915\u0947 \u0938\u0926\u0938\u094d\u092f \u0906\u092a\u0915\u094b \u0936\u093e\u0926\u0940 \u0915\u0930\u0928\u0947 \u0915\u0947 \u0932\u093f\u090f \u092e\u0928\u093e\u0928\u0947 \u0915\u0940 \u0915\u094b\u0936\u093f\u0936 \u0915\u0930\u0924\u0947 \u0939\u0948\u0902\u0964 \u0906\u092a \u0915\u094d\u092f\u093e \u0915\u0930\u0924\u0947 \u0939\u0948\u0902?"
+        },
+        "image": "/path/to/image",
+        "audio": {
+            "HI": "..."
+        },
+        "title": "Your family members try to convince you to get married. What do you do?"
+    },
+    {
+        "id": 1,
+        "description": "You get married. How much do you spend on the wedding from your end?",
+        "options": [
+            {
+                "description": "Spend Rs 2 lakh",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {}
+            },
+            {
+                "description": "Spend Rs 4 lakh",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {}
+            }
+        ],
+        "probability": 0.0,
+        "phase": 2,
+        "translation": {
+            "HI": "..."
+        },
+        "image": "/path/to/image",
+        "audio": {
+            "HI": "..."
+        },
+        "title": "You get married. How much do you spend on the wedding from your end?"
+    },
+    {
+        "id": 2,
+        "description": "You have kids",
+        "options": [
+            {
+                "description": "WHAT DO WE PUT FOR THE OPTIONS?",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {}
+            },
+            {
+                "description": "Option 2",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {}
+            }
+        ],
+        "probability": 1.0,
+        "phase": 2,
+        "translation": {
+            "HI": "\u0906\u092a\u0915\u0947 \u092c\u091a\u094d\u091a\u0947 \u0939\u094b\u0924\u0947 \u0939\u0948|"
+        },
+        "image": "/path/to/image",
+        "audio": {
+            "HI": "..."
+        },
+        "title": "You have kids"
+    },
+    {
+        "id": 3,
+        "description": "Your eyesight gets weaker",
+        "options": [
+            {
+                "description": "Get an eye check-up done and buy spectacles (Needs \u20b92500)",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {}
+            },
+            {
+                "description": "Ignore it",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {}
+            }
+        ],
+        "probability": 0.7,
+        "phase": 2,
+        "translation": {
+            "HI": ""
+        },
+        "image": "/path/to/image",
+        "audio": {
+            "HI": "..."
+        },
+        "title": "Your eyesight gets weaker"
+    },
+    {
+        "id": 4,
+        "description": "The paint on the walls of your house is peeling off because of leakages.",
+        "options": [
+            {
+                "description": "Repair the leakages and also get the walls repainted (\u20b98000)",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {}
+            },
+            {
+                "description": "Only repair the leakages (\u20b9500)",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {}
+            },
+            {
+                "description": "Let it be",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {}
+            }
+        ],
+        "probability": 0.8,
+        "phase": 2,
+        "translation": {
+            "HI": ""
+        },
+        "image": "/path/to/image",
+        "audio": {
+            "HI": "..."
+        },
+        "title": "The paint on the walls of your house is peeling off because of leakages."
+    },
+    {
+        "id": 1,
+        "description": "You have had a painful backache for a while, but you need to go to work and do not have paid leave. What do you do?",
+        "options": [
+            {
+                "description": "Take a painkiller and go to work",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {}
+            },
+            {
+                "description": "Visit a doctor",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {}
+            }
+        ],
+        "probability": 0.5,
+        "phase": 3,
+        "translation": {
+            "HI": "..."
+        },
+        "image": "/path/to/image",
+        "audio": {
+            "HI": "..."
+        },
+        "title": "You have had a painful backache for a while, but you need to go to work and do not have paid leave. What do you do?"
+    },
+    {
+        "id": 2,
+        "description": "A tap in your bathroom is leaky.",
+        "options": [
+            {
+                "description": "Get it repaired (-\u20b9200)",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {}
+            },
+            {
+                "description": "Ignore it",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {}
+            }
+        ],
+        "probability": 0.3,
+        "phase": 3,
+        "translation": {
+            "HI": "..."
+        },
+        "image": "/path/to/image",
+        "audio": {
+            "HI": "..."
+        },
+        "title": "A tap in your bathroom is leaky."
+    },
+    {
+        "id": 3,
+        "description": "Your brother is getting married. How much do you contribute towards the wedding?",
+        "options": [
+            {
+                "description": "\u20b9250000",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {}
+            },
+            {
+                "description": "\u20b9500000",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {}
+            }
+        ],
+        "probability": 0.5,
+        "phase": 3,
+        "translation": {
+            "HI": "..."
+        },
+        "image": "/path/to/image",
+        "audio": {
+            "HI": "..."
+        },
+        "title": "Your brother is getting married. How much do you contribute towards the wedding?"
+    },
+    {
+        "id": 4,
+        "description": "Your child's birthday is coming up, and they ask you for an expensive toy.",
+        "options": [
+            {
+                "description": "Buy it (-\u20b92000)",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {}
+            },
+            {
+                "description": "Buy them a cheaper toy (-\u20b9500)",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {}
+            }
+        ],
+        "probability": 0.4,
+        "phase": 3,
+        "translation": {
+            "HI": "..."
+        },
+        "image": "/path/to/image",
+        "audio": {
+            "HI": "..."
+        },
+        "title": "Your child's birthday is coming up, and they ask you for an expensive toy."
+    },
+    {
+        "id": 5,
+        "description": "Your child has been struggling at school.",
+        "options": [
+            {
+                "description": "Tutor your child yourself",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {}
+            },
+            {
+                "description": "Enroll them for coaching classes (adds to living expenses)",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {}
+            }
+        ],
+        "probability": 0.5,
+        "phase": 3,
+        "translation": {
+            "HI": "..."
+        },
+        "image": "/path/to/image",
+        "audio": {
+            "HI": "..."
+        },
+        "title": "Your child has been struggling at school."
+    },
+    {
+        "id": 1,
+        "description": "You have a back injury and have to be hospitalized.",
+        "options": [
+            {
+                "description": "NO OPTIONS HERE as such, amount deducted depends on whether insurance was taken or not",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {}
+            }
+        ],
+        "probability": 0.4,
+        "phase": 4,
+        "translation": {
+            "HI": "..."
+        },
+        "image": "/path/to/image",
+        "audio": {
+            "HI": "..."
+        },
+        "title": "You have a back injury and have to be hospitalized."
+    },
+    {
+        "id": 2,
+        "description": "Your ageing mother comes over to stay with you for a while. The bathroom floor is wet and slippery, which causes her to slip and fall. She needs to be hospitalized.",
+        "options": [
+            {
+                "description": "NO OPTIONS HERE as such, amount deducted depends on whether insurance was taken or not",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {}
+            }
+        ],
+        "probability": 0.3,
+        "phase": 4,
+        "translation": {
+            "HI": "..."
+        },
+        "image": "/path/to/image",
+        "audio": {
+            "HI": "..."
+        },
+        "title": "Your ageing mother comes over to stay with you for a while. The bathroom floor is wet and slippery, which causes her to slip and fall. She needs to be hospitalized."
+    },
+    {
+        "id": 3,
+        "description": "Your child's clothes are getting tight and worn out; they need new clothes.",
+        "options": [
+            {
+                "description": "Buy them new clothes (-\u20b93000)",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {}
+            },
+            {
+                "description": "Get second-hand clothes",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {}
+            }
+        ],
+        "probability": 0.6,
+        "phase": 4,
+        "translation": {
+            "HI": "..."
+        },
+        "image": "/path/to/image",
+        "audio": {
+            "HI": "..."
+        },
+        "title": "Your child's clothes are getting tight and worn out; they need new clothes."
+    },
+    {
+        "id": 4,
+        "description": "You need a cataract surgery.",
+        "options": [
+            {
+                "description": "NO OPTIONS HERE as such, amount deducted depends on whether insurance was taken or not",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {}
+            }
+        ],
+        "probability": 0.2,
+        "phase": 4,
+        "translation": {
+            "HI": "..."
+        },
+        "image": "/path/to/image",
+        "audio": {
+            "HI": "..."
+        },
+        "title": "You need a cataract surgery."
+    },
+    {
+        "id": 1,
+        "description": "You receive a call from a person who claims that they're from the bank, and that your account will be frozen unless you provide your bank details.",
+        "options": [
+            {
+                "description": "You provide your bank details.",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {}
+            },
+            {
+                "description": "You cut the call immediately",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {}
+            }
+        ],
+        "probability": 0.5,
+        "phase": [
+            1,
+            2,
+            3,
+            4
+        ],
+        "translation": {
+            "HI": "..."
+        },
+        "image": "/path/to/image",
+        "audio": {
+            "HI": "..."
+        },
+        "title": "You receive a call from a person who claims that they're from the bank, and that your account will be frozen unless you provide your bank details."
+    },
+    {
+        "id": 2,
+        "description": "A group of people from your neighbourhood have been collectively investing their money in a scheme that promises a higher interest rate than schemes available at banks. They ask you to join them. What do you do?",
+        "options": [
+            {
+                "description": "Accept",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {}
+            },
+            {
+                "description": "Refuse",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {}
+            }
+        ],
+        "probability": 0.5,
+        "phase": [
+            1,
+            2,
+            3,
+            4
+        ],
+        "translation": {
+            "HI": "..."
+        },
+        "image": "/path/to/image",
+        "audio": {
+            "HI": "..."
+        },
+        "title": "A group of people from your neighbourhood have been collectively investing their money in a scheme that promises a higher interest rate than schemes available at banks. They ask you to join them. What do you do?"
+    },
+    {
+        "id": 3,
+        "description": "The neighbourhood scheme was a fraud, you lose all the money which you had invested.",
+        "options": [
+            {
+                "description": "NO OPTIONS HERE",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {}
+            }
+        ],
+        "probability": 0.0,
+        "phase": [
+            1,
+            2,
+            3,
+            4
+        ],
+        "translation": {
+            "HI": "..."
+        },
+        "image": "/path/to/image",
+        "audio": {
+            "HI": "..."
+        },
+        "title": "The neighbourhood scheme was a fraud, you lose all the money which you had invested."
+    },
+    {
+        "id": 4,
+        "description": "You have been attacked by a thief! What do you do?",
+        "options": [
+            {
+                "description": "Hand over money",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {
+                    "hi": "\u092a\u0948\u0938\u0947 \u0938\u094c\u0902\u092a \u0926\u094b"
+                }
+            },
+            {
+                "description": "Try to fight off or run away",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {
+                    "hi": "\u0932\u0921\u093c\u0928\u0947 \u092f\u093e \u092d\u093e\u0917\u0928\u0947 \u0915\u0940 \u0915\u094b\u0936\u093f\u0936 \u0915\u0930\u0947\u0902"
+                }
+            }
+        ],
+        "probability": 0.0,
+        "phase": [
+            1,
+            2,
+            3,
+            4
+        ],
+        "translation": {
+            "HI": "\u0906\u092a \u092a\u0930 \u091a\u094b\u0930 \u0928\u0947 \u0939\u092e\u0932\u093e \u0915\u093f\u092f\u093e \u0939\u0948! \u0906\u092a \u0915\u094d\u092f\u093e \u0915\u0930\u0924\u0947 \u0939\u0948\u0902?"
+        },
+        "image": "/path/to/image",
+        "audio": {
+            "HI": "..."
+        },
+        "title": "You have been attacked by a thief! What do you do?"
+    }
+]
