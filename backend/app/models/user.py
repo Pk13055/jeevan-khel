@@ -18,9 +18,18 @@ class Finance(Base):
     interest: float = 3.5
 
 
+class Insurance(Base):
+    """Flags to check whether insurance has been taken"""
+    house: bool = False
+    health: bool = False
+    car: bool = False
+    life: bool = False
+
+
 class State(Base):
     """State to save the user progress"""
     code: uuid.UUID
+    insurance: Insurance = Insurance()
     finances: Finance = Finance()
     completed: List[Level] = list()
     remaining: List[Level] = list()

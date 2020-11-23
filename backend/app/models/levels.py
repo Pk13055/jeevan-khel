@@ -1,5 +1,5 @@
 from enum import Enum, IntEnum
-from typing import List, Dict
+from typing import List, Dict, Union, Optional
 
 from pydantic import Field
 
@@ -23,8 +23,8 @@ class Phase(IntEnum):
 class Event(Base):
     """Event modification when, and if, an action is performed"""
     id: ObjectID
-    probability: float = 0.0
-    phase: Phase
+    probability: Optional[float] = 0.0
+    phase: Optional[Phase]
 
 
 class Action(Base):
@@ -53,7 +53,7 @@ class Level(Base):
 
     options: List[Option] = list()
     probability: float = 1.0
-    phase: Phase
+    phase: Union[Phase, List[Phase]]
 
     translation: Dict[TransType, str] = dict()
     audio: Dict[TransType, str] = dict()

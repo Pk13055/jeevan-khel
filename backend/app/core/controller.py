@@ -13,7 +13,7 @@ router = APIRouter()
 
 
 @router.get("/new", response_model=StateInResponse)
-async def get_game_code(resume: uuid.UUID = None, db: AsyncIOMotorClient = Depends(get_database)) -> StateInResponse:
+async def get_game_state(resume: uuid.UUID = None, db: AsyncIOMotorClient = Depends(get_database)) -> StateInResponse:
     """Generate a new meeting code
 
         - If code is user given, then return code AND state of game, if it exists
