@@ -7,9 +7,9 @@ from .base import Base, ObjectID
 
 
 class TransType(Enum):
-    EN = 'en'
-    HI = 'hi'
-    MH = 'mh'
+    EN = 'EN'
+    HI = 'HI'
+    MH = 'MH'
 
 
 class Phase(IntEnum):

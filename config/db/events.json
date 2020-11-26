@@ -12,7 +12,7 @@
                     "events": []
                 },
                 "audio": {
-                    "HI": "../../frontend/public/audio/options/event_1_option_1.mp3"
+                    "HI": "event_1_option_1.mp3"
                 },
                 "translation": {
                     "HI": "₹5000 भरें"
@@ -27,7 +27,7 @@
                     "events": []
                 },
                 "audio": {
-                    "HI": "../../frontend/public/audio/options/event_1_option_2.mp3"
+                    "HI": "event_1_option_2.mp3"
                 },
                 "translation": {
                     "HI": "₹10000 भरें"
@@ -39,9 +39,9 @@
         "translation": {
             "HI": "आपको अपने छोटे भाई के स्कूल की फीस भरने में मदद करनी होगी। आप कितने पैसे देते हैं? (परिवार के अन्य सदस्य बाकी की फीस भरेंगे)"
         },
-        "image": "../../frontend/public/images/event_1.png",
+        "image": "event_1.png",
         "audio": {
-            "HI": "../../frontend/public/audio/desc/event_1.mp3"
+            "HI": "event_1.mp3"
         },
         "title": "You need to help pay for your younger brother's school fees. How much do you pay? (Other family members will pay the rest)"
     },
@@ -58,7 +58,7 @@
                     "events": [3]
                 },
                 "audio": {
-                    "HI": "../../frontend/public/audio/options/event_2_option_1.mp3"
+                    "HI": "event_2_option_1.mp3"
                 },
                 "translation": {
                     "HI": "हाँ"
@@ -73,7 +73,7 @@
                     "events": [3]
                 },
                 "audio": {
-                    "HI": "../../frontend/public/audio/options/event_2_option_2.mp3"
+                    "HI": "event_2_option_2.mp3"
                 },
                 "translation": {
                     "HI": "नहीं"
@@ -85,9 +85,9 @@
         "translation": {
             "HI": "आपको बेहतर तनख़्वाह के साथ दूसरे शहर में नौकरी का प्रस्ताव मिलता है। क्या आप प्रस्ताव स्वीकार करते हैं?"
         },
-        "image": "../../frontend/public/images/event_2.png",
+        "image": "event_2.png",
         "audio": {
-            "HI": "../../frontend/public/audio/desc/event_2.mp3"
+            "HI": "event_2.mp3"
         },
         "title": "You get a job offer in another city, with better pay. Do you accept the offer?"
     },
@@ -104,7 +104,9 @@
                     "events": []
                 },
                 "audio": {},
-                "translation": {}
+                "translation": {
+                    "HI": "विकल्प 1"
+                }
             },
             {
                 "description": "Option 2",
@@ -115,7 +117,9 @@
                     "events": []
                 },
                 "audio": {},
-                "translation": {}
+                "translation": {
+                    "HI": "विकल्प 2"
+                }
             }
         ],
         "probability": 0.0,
@@ -156,7 +160,7 @@
                 },
                 "audio": {},
                 "translation": {
-                    "HI": "बाद में करेंगे"
+                    "HI": "बाद में करेंगे|"
                 }
             }
         ],
@@ -184,7 +188,9 @@
                     "events": []
                 },
                 "audio": {},
-                "translation": {}
+                "translation": {
+                    "HI": "2 लाख रुपए खर्च करें |"
+                }
             },
             {
                 "description": "Spend Rs 4 lakh",
@@ -195,13 +201,15 @@
                     "events": []
                 },
                 "audio": {},
-                "translation": {}
+                "translation": {
+                    "HI": "4 लाख रुपए खर्च करें |"
+                }
             }
         ],
         "probability": 0.0,
         "phase": 2,
         "translation": {
-            "HI": "..."
+            "HI": "आपकी शादी होती है| आप अपनी ओर से शादी पर कितना खर्च करते हैं ?"
         },
         "image": "/path/to/image",
         "audio": {
@@ -212,30 +220,7 @@
     {
         "id": 6,
         "description": "You have kids",
-        "options": [
-            {
-                "description": "WHAT DO WE PUT FOR THE OPTIONS?",
-                "action": {
-                    "expenditure": 0.0,
-                    "debt": 0.0,
-                    "current": 0.0,
-                    "events": []
-                },
-                "audio": {},
-                "translation": {}
-            },
-            {
-                "description": "Option 2",
-                "action": {
-                    "expenditure": 0.0,
-                    "debt": 0.0,
-                    "current": 0.0,
-                    "events": []
-                },
-                "audio": {},
-                "translation": {}
-            }
-        ],
+        "options": [],
         "probability": 1.0,
         "phase": 2,
         "translation": {
@@ -252,7 +237,7 @@
         "description": "Your eyesight gets weaker",
         "options": [
             {
-                "description": "Get an eye check-up done and buy spectacles (Needs \u20b92500)",
+                "description": "Get an eye check-up done and buy spectacles (Needs ₹2500)",
                 "action": {
                     "expenditure": 0.0,
                     "debt": 0.0,
@@ -260,7 +245,9 @@
                     "events": []
                 },
                 "audio": {},
-                "translation": {}
+                "translation": {
+                    "HI": "आंखों की जांच कराएं और चश्मा खरीदें| (₹2500 खर्च होंगे )"
+                }
             },
             {
                 "description": "Ignore it",
@@ -271,13 +258,15 @@
                     "events": []
                 },
                 "audio": {},
-                "translation": {}
+                "translation": {
+                    "HI": "इसके बारे में कुछ नहीं करना है |"
+                }
             }
         ],
         "probability": 0.7,
         "phase": 2,
         "translation": {
-            "HI": ""
+            "HI": "आपकी आंखें कमज़ोर हो जाती हैं, ठीक से दिखाई नहीं देता |"
         },
         "image": "/path/to/image",
         "audio": {
@@ -290,7 +279,7 @@
         "description": "The paint on the walls of your house is peeling off because of leakages.",
         "options": [
             {
-                "description": "Repair the leakages and also get the walls repainted (\u20b98000)",
+                "description": "Repair the leakages and also get the walls repainted (₹8000)",
                 "action": {
                     "expenditure": 0.0,
                     "debt": 0.0,
@@ -298,10 +287,12 @@
                     "events": []
                 },
                 "audio": {},
-                "translation": {}
+                "translation": {
+                    "HI": "लीकेज को ठीक करवाएं और दीवारों पर पेंट लगाएं|(₹8000 खर्च होंगे)"
+                }
             },
             {
-                "description": "Only repair the leakages (\u20b9500)",
+                "description": "Only repair the leakages (₹500)",
                 "action": {
                     "expenditure": 0.0,
                     "debt": 0.0,
@@ -309,7 +300,9 @@
                     "events": []
                 },
                 "audio": {},
-                "translation": {}
+                "translation": {
+                    "HI": "सिर्फ लीकेज को ठीक करवाएं (₹500 खर्च होंगे)"
+                }
             },
             {
                 "description": "Let it be",
@@ -320,13 +313,15 @@
                     "events": []
                 },
                 "audio": {},
-                "translation": {}
+                "translation": {
+                    "HI": "कुछ न करें|"
+                }
             }
         ],
         "probability": 0.8,
         "phase": 2,
         "translation": {
-            "HI": ""
+            "HI": "लीकेज के कारण आपके घर की दीवारों पर लगा पेंट छिल रहा है।"
         },
         "image": "/path/to/image",
         "audio": {
@@ -347,7 +342,9 @@
                     "events": []
                 },
                 "audio": {},
-                "translation": {}
+                "translation": {
+                    "HI": "दर्द के लिए दवा लें और काम पर जाएं"
+                }
             },
             {
                 "description": "Visit a doctor",
@@ -358,7 +355,9 @@
                     "events": []
                 },
                 "audio": {},
-                "translation": {}
+                "translation": {
+                    "HI": "डॉक्टर के पास जाएं"
+                }
             }
         ],
         "probability": 0.5,
@@ -368,7 +367,7 @@
         },
         "image": "/path/to/image",
         "audio": {
-            "HI": "..."
+            "HI": "कुछ समय से आपकी पीठ बहुत दर्द कर रही है, लेकिन आपको काम पर जाना है, और आपके पास पेड लीव नहीं है | आप क्या करते हैं?"
         },
         "title": "You have had a painful backache for a while, but you need to go to work and do not have paid leave. What do you do?"
     },
@@ -377,7 +376,7 @@
         "description": "A tap in your bathroom is leaky.",
         "options": [
             {
-                "description": "Get it repaired (-\u20b9200)",
+                "description": "Get it repaired (will cost ₹200)",
                 "action": {
                     "expenditure": 0.0,
                     "debt": 0.0,
@@ -385,7 +384,9 @@
                     "events": []
                 },
                 "audio": {},
-                "translation": {}
+                "translation": {
+                    "HI": "नल को ठीक करवाएं | (₹200 खर्च होंगे)"
+                }
             },
             {
                 "description": "Ignore it",
@@ -396,13 +397,15 @@
                     "events": []
                 },
                 "audio": {},
-                "translation": {}
+                "translation": {
+                    "HI": "कुछ न करें|"
+                }
             }
         ],
         "probability": 0.3,
         "phase": 3,
         "translation": {
-            "HI": "..."
+            "HI": "आपके बाथरूम में एक नल टपक रहा है|"
         },
         "image": "/path/to/image",
         "audio": {
@@ -415,7 +418,7 @@
         "description": "Your brother is getting married. How much do you contribute towards the wedding?",
         "options": [
             {
-                "description": "\u20b9250000",
+                "description": "₹250000",
                 "action": {
                     "expenditure": 0.0,
                     "debt": 0.0,
@@ -423,10 +426,12 @@
                     "events": []
                 },
                 "audio": {},
-                "translation": {}
+                "translation": {
+                    "HI": "₹250000"
+                }
             },
             {
-                "description": "\u20b9500000",
+                "description": "₹500000",
                 "action": {
                     "expenditure": 0.0,
                     "debt": 0.0,
@@ -434,13 +439,15 @@
                     "events": []
                 },
                 "audio": {},
-                "translation": {}
+                "translation": {
+                    "HI": "₹500000"
+                }
             }
         ],
         "probability": 0.5,
         "phase": 3,
         "translation": {
-            "HI": "..."
+            "HI": "आपके भाई की शादी तय हुई है| आप अपनी ओर से शादी पर कितना खर्च करते हैं ?"
         },
         "image": "/path/to/image",
         "audio": {
@@ -453,7 +460,7 @@
         "description": "Your child's birthday is coming up, and they ask you for an expensive toy.",
         "options": [
             {
-                "description": "Buy it (-\u20b92000)",
+                "description": "Buy it (will cost ₹2000)",
                 "action": {
                     "expenditure": 0.0,
                     "debt": 0.0,
@@ -461,10 +468,12 @@
                     "events": []
                 },
                 "audio": {},
-                "translation": {}
+                "translation": {
+                    "HI": "उसे खरीदें (₹2000 खर्च होंगे)"
+                }
             },
             {
-                "description": "Buy them a cheaper toy (-\u20b9500)",
+                "description": "Buy them a cheaper toy (will cost ₹500)",
                 "action": {
                     "expenditure": 0.0,
                     "debt": 0.0,
@@ -472,13 +481,15 @@
                     "events": []
                 },
                 "audio": {},
-                "translation": {}
+                "translation": {
+                    "HI": "कोई दूसरा खिलौना खरीदें (₹500 खर्च होंगे)"
+                }
             }
         ],
         "probability": 0.4,
         "phase": 3,
         "translation": {
-            "HI": "..."
+            "HI": "आपके बच्चे का जन्मदिन आ रहा है, और वे आपसे एक महंगा खिलौना मांगते है |"
         },
         "image": "/path/to/image",
         "audio": {
@@ -499,7 +510,9 @@
                     "events": []
                 },
                 "audio": {},
-                "translation": {}
+                "translation": {
+                    "HI": ""
+                }
             },
             {
                 "description": "Enroll them for coaching classes (adds to living expenses)",
@@ -510,7 +523,9 @@
                     "events": []
                 },
                 "audio": {},
-                "translation": {}
+                "translation": {
+                    "HI": ""
+                }
             }
         ],
         "probability": 0.5,
@@ -537,7 +552,9 @@
                     "events": []
                 },
                 "audio": {},
-                "translation": {}
+                "translation": {
+                    "HI": ""
+                }
             }
         ],
         "probability": 0.4,
@@ -564,7 +581,9 @@
                     "events": []
                 },
                 "audio": {},
-                "translation": {}
+                "translation": {
+                    "HI": ""
+                }
             }
         ],
         "probability": 0.3,
@@ -583,7 +602,7 @@
         "description": "Your child's clothes are getting tight and worn out; they need new clothes.",
         "options": [
             {
-                "description": "Buy them new clothes (-\u20b93000)",
+                "description": "Buy them new clothes (Will cost ₹3000)",
                 "action": {
                     "expenditure": 0.0,
                     "debt": 0.0,
@@ -591,7 +610,9 @@
                     "events": []
                 },
                 "audio": {},
-                "translation": {}
+                "translation": {
+                    "HI": ""
+                }
             },
             {
                 "description": "Get second-hand clothes",
@@ -602,7 +623,9 @@
                     "events": []
                 },
                 "audio": {},
-                "translation": {}
+                "translation": {
+                    "HI": ""
+                }
             }
         ],
         "probability": 0.6,
@@ -629,7 +652,9 @@
                     "events": []
                 },
                 "audio": {},
-                "translation": {}
+                "translation": {
+                    "HI": ""
+                }
             }
         ],
         "probability": 0.2,
@@ -656,7 +681,9 @@
                     "events": []
                 },
                 "audio": {},
-                "translation": {}
+                "translation": {
+                    "HI": ""
+                }
             },
             {
                 "description": "You cut the call immediately",
@@ -667,7 +694,9 @@
                     "events": []
                 },
                 "audio": {},
-                "translation": {}
+                "translation": {
+                    "HI": ""
+                }
             }
         ],
         "probability": 0.5,
@@ -699,7 +728,9 @@
                     "events": []
                 },
                 "audio": {},
-                "translation": {}
+                "translation": {
+                    "HI": ""
+                }
             },
             {
                 "description": "Refuse",
@@ -710,7 +741,9 @@
                     "events": []
                 },
                 "audio": {},
-                "translation": {}
+                "translation": {
+                    "HI": ""
+                }
             }
         ],
         "probability": 0.5,
@@ -742,7 +775,9 @@
                     "events": []
                 },
                 "audio": {},
-                "translation": {}
+                "translation": {
+                    "HI": ""
+                }
             }
         ],
         "probability": 0.0,
@@ -775,7 +810,7 @@
                 },
                 "audio": {},
                 "translation": {
-                    "HI": "\u092a\u0948\u0938\u0947 \u0938\u094c\u0902\u092a \u0926\u094b"
+                    "HI": "पैसे सौंप दो|"
                 }
             },
             {
@@ -788,11 +823,11 @@
                 },
                 "audio": {},
                 "translation": {
-                    "HI": "\u0932\u0921\u093c\u0928\u0947 \u092f\u093e \u092d\u093e\u0917\u0928\u0947 \u0915\u0940 \u0915\u094b\u0936\u093f\u0936 \u0915\u0930\u0947\u0902"
+                    "HI": "लड़ने या भागने की कोशिश करें|"
                 }
             }
         ],
-        "probability": 0.0,
+        "probability": 0.5,
         "phase": [
             1,
             2,
@@ -800,12 +835,425 @@
             4
         ],
         "translation": {
-            "HI": "\u0906\u092a \u092a\u0930 \u091a\u094b\u0930 \u0928\u0947 \u0939\u092e\u0932\u093e \u0915\u093f\u092f\u093e \u0939\u0948! \u0906\u092a \u0915\u094d\u092f\u093e \u0915\u0930\u0924\u0947 \u0939\u0948\u0902?"
+            "HI": "आप पर चोर ने हमला किया है! आप क्या करते हैं?"
         },
         "image": "/path/to/image",
         "audio": {
             "HI": "..."
         },
         "title": "You have been attacked by a thief! What do you do?"
+    },
+    {
+        "id": 22,
+        "description": "Your employer gives you a hefty bonus for Diwali.",
+        "options": [],
+        "probability": 0.8,
+        "phase": 3,
+        "translation": {
+            "HI": "आपके एम्प्लायर आपको दिवाली के लिए बहुत अच्छा बोनस देते है|"
+        },
+        "image": "/path/to/image",
+        "audio": {
+            "HI": "..."
+        },
+        "title": "..."
+    },
+    {
+        "id": 23,
+        "description": "(DECIDE: Advertise for the govt or no?) It is a good idea to buy an accident insurance policy. Do you want to enroll for the government's Pradhan Mantri Suraksha Bima Yojana scheme? The annual premium is ₹12, the cover amount is ₹2 lakh",
+        "options": [
+            {
+                "description": "Yes (Will cost ₹12 per year)",
+                "action": {
+                    "expenditure": -1.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {
+                    "HI": ""
+                }
+            },
+            {
+                "description": "No",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {
+                    "HI": ""
+                }
+            }
+        ],
+        "probability": 1,
+        "phase": 1,
+        "translation": {
+            "HI": ""
+        },
+        "image": "/path/to/image",
+        "audio": {
+            "HI": "..."
+        },
+        "title": "..."
+    },
+    {
+        "id": 24,
+        "description": "(DECIDE: Advertise for the govt or no?) It would be good to buy a life insurance policy. Do you want to enroll for the government's Pradhan Mantri Jeevan Jyoti Bima Yojana scheme? The annual premium is ₹330, the cover amount is ₹2 lakh",
+        "options": [
+            {
+                "description": "Yes (Will cost ₹330 per year)",
+                "action": {
+                    "expenditure":-27.5,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {
+                    "HI": ""
+                }
+            },
+            {
+                "description": "No",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {
+                    "HI": ""
+                }
+            }
+        ],
+        "probability": 1,
+        "phase": 1,
+        "translation": {
+            "HI": ""
+        },
+        "image": "/path/to/image",
+        "audio": {
+            "HI": "..."
+        },
+        "title": "..."
+    },
+    {
+        "id": 25,
+        "description": "Do you want to buy a health insurance policy?",
+        "options": [
+            {
+                "description": "Yes, buy a policy whose annual premium is ₹, and the cover amount is ₹",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {
+                    "HI": ""
+                }
+            },
+            {
+                "description": "Yes, buy a policy whose annual premium is ₹, and the cover amount is ₹",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {
+                    "HI": ""
+                }
+            },
+            {
+                "description": "Yes, buy a policy whose annual premium is ₹, and the cover amount is ₹",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {
+                    "HI": ""
+                }
+            },
+            {
+                "description": "No, don't want to buy a health insurance policy",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {
+                    "HI": ""
+                }
+            }
+        ],
+        "probability": 1,
+        "phase": 1,
+        "translation": {
+            "HI": ""
+        },
+        "image": "/path/to/image",
+        "audio": {
+            "HI": "..."
+        },
+        "title": "..."
+    },
+    {
+        "id": 26,
+        "description": "(EMPTY/DUMMY EVENT -- Remove if not filled later) It is a good idea to buy an ... insurance policy. Do you want to buy XYZ? The annual premium is ₹, the cover amount is ₹",
+        "options": [
+            {
+                "description": "Yes (Will cost ₹ per )",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {
+                    "HI": ""
+                }
+            },
+            {
+                "description": "No",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {
+                    "HI": ""
+                }
+            }
+        ],
+        "probability": 1,
+        "phase": 1,
+        "translation": {
+            "HI": ""
+        },
+        "image": "/path/to/image",
+        "audio": {
+            "HI": "..."
+        },
+        "title": "..."
+    },
+    {
+        "id": 27,
+        "description": "Do you want to apply for the Atal Pension Yojana scheme?",
+        "options": [
+            {
+                "description": "Yes (To get a monthly pension of ₹1000, will cost ₹50 per month)",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {
+                    "HI": ""
+                }
+            },
+            {
+                "description": "Yes (To get a monthly pension of ₹2000, will cost ₹100 per month)",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {
+                    "HI": ""
+                }
+            },
+            {
+                "description": "Yes (To get a monthly pension of ₹3000, will cost ₹150 per month)",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {
+                    "HI": ""
+                }
+            },
+            {
+                "description": "No",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {
+                    "HI": ""
+                }
+            }
+        ],
+        "probability": 1,
+        "phase": 1,
+        "translation": {
+            "HI": ""
+        },
+        "image": "/path/to/image",
+        "audio": {
+            "HI": "..."
+        },
+        "title": "..."
+    },
+    {
+        "id": 28,
+        "description": "Do you want to apply for the Atal Pension Yojana scheme?",
+        "options": [
+            {
+                "description": "Yes (To get a monthly pension of ₹1000, will cost ₹116 per month)",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {
+                    "HI": ""
+                }
+            },
+            {
+                "description": "Yes (To get a monthly pension of ₹2000, will cost ₹231 per month)",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {
+                    "HI": ""
+                }
+            },
+            {
+                "description": "Yes (To get a monthly pension of ₹3000, will cost ₹347 per month)",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {
+                    "HI": ""
+                }
+            },
+            {
+                "description": "No",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {
+                    "HI": ""
+                }
+            }
+        ],
+        "probability": 0,
+        "phase": 2,
+        "translation": {
+            "HI": ""
+        },
+        "image": "/path/to/image",
+        "audio": {
+            "HI": "..."
+        },
+        "title": "..."
+    },
+    {
+        "id": 29,
+        "description": "Do you want to apply for the Atal Pension Yojana scheme?",
+        "options": [
+            {
+                "description": "Yes (To get a monthly pension of ₹1000, will cost ₹291 per month)",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {
+                    "HI": ""
+                }
+            },
+            {
+                "description": "Yes (To get a monthly pension of ₹2000, will cost ₹582 per month)",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {
+                    "HI": ""
+                }
+            },
+            {
+                "description": "Yes (To get a monthly pension of ₹3000, will cost ₹873 per month)",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {
+                    "HI": ""
+                }
+            },
+            {
+                "description": "No",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {},
+                "translation": {
+                    "HI": ""
+                }
+            }
+        ],
+        "probability": 0,
+        "phase": 3,
+        "translation": {
+            "HI": ""
+        },
+        "image": "/path/to/image",
+        "audio": {
+            "HI": "..."
+        },
+        "title": "..."
     }
 ]
