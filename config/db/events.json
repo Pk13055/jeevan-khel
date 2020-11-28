@@ -37,7 +37,7 @@
         "probability": 0.6,
         "phase": 1,
         "translation": {
-            "HI": "आपको अपने छोटे भाई के स्कूल की फीस भरने में मदद करनी होगी। आप कितने पैसे देते हैं? (परिवार के अन्य सदस्य बाकी की फीस भरेंगे)"
+            "HI": "आपको अपने छोटे भाई के स्कूल की फीस भरने में मदद करनी है। आप कितने पैसे देते हैं? (परिवार के अन्य सदस्य बाकी की फीस भरेंगे)"
         },
         "image": "event_1.png",
         "audio": {
@@ -98,12 +98,14 @@
             {
                 "description": "Option 1",
                 "action": {
-                    "expenditure": 0.0,
+                    "expenditure": -4600.0,
                     "debt": 0.0,
                     "current": 0.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_3_option_1.mp3"
+                },
                 "translation": {
                     "HI": "विकल्प 1"
                 }
@@ -111,12 +113,14 @@
             {
                 "description": "Option 2",
                 "action": {
-                    "expenditure": 0.0,
+                    "expenditure": -3200.0,
                     "debt": 0.0,
                     "current": 0.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_3_option_2.mp3"
+                },
                 "translation": {
                     "HI": "विकल्प 2"
                 }
@@ -125,11 +129,11 @@
         "probability": 0.0,
         "phase": 1,
         "translation": {
-            "HI": "आप इस नए शहर में रहने के लिए जगह ढूँढ़ते हैं। आपके पास 2 विकल्प हैं: नंबर 1. किराया प्रति माह 4000 रुपये; 2 अन्य लोगों के साथ साझा किया; आने-जाने का खर्च प्रतिदिन 20 रुपये होगा। नंबर 2. किराया 2000 रुपये प्रति माह; 4 अन्य लोगों के साथ साझा किया; आने-जाने का खर्च प्रतिदिन 40 रुपये होगा। आप कौन सा विकल्प चुनते हैं?"
+            "HI": "आप इस नए शहर में रहने के लिए जगह ढूँढ़ते हैं। आपके पास 2 विकल्प हैं | नंबर 1, हर महीने 4000 रुपये का किराया; 2 और लोगों के साथ रहना होगा; और आने-जाने का खर्च प्रतिदिन 20 रुपये होगा। नंबर 2, हर महीने 2000 रुपये का किराया; 4 और लोगों के साथ रहना होगा; और आने-जाने का खर्च प्रतिदिन 40 रुपये होगा। आप कौन सा विकल्प चुनते हैं?"
         },
-        "image": "/path/to/image",
+        "image": "event_3.png",
         "audio": {
-            "HI": "..."
+            "HI": "event_3.mp3"
         },
         "title": "You look for a place to stay in this new city. You have 2 options: Number 1. Rent Rs 4000 per month; shared with 2 other people; commuting will cost 20 Rs per day. Number 2. Rent Rs 2000 per month; shared with 4 other people; commuting will cost 40 Rs per day. Which option do you choose?"
     },
@@ -142,10 +146,12 @@
                 "action": {
                     "expenditure": 0.0,
                     "debt": 0.0,
-                    "current": 0.0,
+                    "current": -200000.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_4_option_1.mp3"
+                },
                 "translation": {
                     "HI": "शादी करने के लिए सहमत (आपको अपनी ओर से 2 लाख रुपये खर्च करने होंगे)"
                 }
@@ -158,7 +164,9 @@
                     "current": 0.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_4_option_2.mp3"
+                },
                 "translation": {
                     "HI": "बाद में करेंगे|"
                 }
@@ -169,9 +177,9 @@
         "translation": {
             "HI": "आपके परिवार के सदस्य आपको शादी करने के लिए मनाने की कोशिश करते हैं। आप क्या करते हैं?"
         },
-        "image": "/path/to/image",
+        "image": "event_4.png",
         "audio": {
-            "HI": "..."
+            "HI": "event_4.mp3"
         },
         "title": "Your family members try to convince you to get married. What do you do?"
     },
@@ -184,10 +192,12 @@
                 "action": {
                     "expenditure": 0.0,
                     "debt": 0.0,
-                    "current": 0.0,
+                    "current": -200000.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_5_option_1.mp3"
+                },
                 "translation": {
                     "HI": "2 लाख रुपए खर्च करें |"
                 }
@@ -197,10 +207,12 @@
                 "action": {
                     "expenditure": 0.0,
                     "debt": 0.0,
-                    "current": 0.0,
+                    "current": -400000.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_5_option_2.mp3"
+                },
                 "translation": {
                     "HI": "4 लाख रुपए खर्च करें |"
                 }
@@ -211,26 +223,26 @@
         "translation": {
             "HI": "आपकी शादी होती है| आप अपनी ओर से शादी पर कितना खर्च करते हैं ?"
         },
-        "image": "/path/to/image",
+        "image": "event_5.png",
         "audio": {
-            "HI": "..."
+            "HI": "event_5.mp3"
         },
         "title": "You get married. How much do you spend on the wedding from your end?"
     },
     {
         "id": 6,
-        "description": "You have kids",
+        "description": "You have kids. The family members living with you now include your parents, your spouse, and your kids.",
         "options": [],
         "probability": 1.0,
         "phase": 2,
         "translation": {
-            "HI": "आपके बच्चे होते है|"
+            "HI": "आपके बच्चे होते है | आपके साथ रहने वाले परिवार वालों में अब आपके माता-पिता, आपके जीवनसाथी, और आपके बच्चे शामिल हैं।"
         },
-        "image": "/path/to/image",
+        "image": "event_6.png",
         "audio": {
-            "HI": "..."
+            "HI": "event_6.mp3"
         },
-        "title": "You have kids"
+        "title": "You have kids. The family members living with you now include your parents, your spouse, and your kids."
     },
     {
         "id": 7,
@@ -241,10 +253,12 @@
                 "action": {
                     "expenditure": 0.0,
                     "debt": 0.0,
-                    "current": 0.0,
+                    "current": -2500.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_7_option_1.mp3"
+                },
                 "translation": {
                     "HI": "आंखों की जांच कराएं और चश्मा खरीदें| (₹2500 खर्च होंगे )"
                 }
@@ -257,7 +271,9 @@
                     "current": 0.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_7_option_2.mp3"
+                },
                 "translation": {
                     "HI": "इसके बारे में कुछ नहीं करना है |"
                 }
@@ -268,9 +284,9 @@
         "translation": {
             "HI": "आपकी आंखें कमज़ोर हो जाती हैं, ठीक से दिखाई नहीं देता |"
         },
-        "image": "/path/to/image",
+        "image": "event_7.png",
         "audio": {
-            "HI": "..."
+            "HI": "event_7.mp3"
         },
         "title": "Your eyesight gets weaker"
     },
@@ -283,10 +299,12 @@
                 "action": {
                     "expenditure": 0.0,
                     "debt": 0.0,
-                    "current": 0.0,
+                    "current": -8000.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_8_option_1.mp3"
+                },
                 "translation": {
                     "HI": "लीकेज को ठीक करवाएं और दीवारों पर पेंट लगाएं|(₹8000 खर्च होंगे)"
                 }
@@ -296,10 +314,12 @@
                 "action": {
                     "expenditure": 0.0,
                     "debt": 0.0,
-                    "current": 0.0,
+                    "current": -500.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_8_option_2.mp3"
+                },
                 "translation": {
                     "HI": "सिर्फ लीकेज को ठीक करवाएं (₹500 खर्च होंगे)"
                 }
@@ -312,7 +332,9 @@
                     "current": 0.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_8_option_3.mp3"
+                },
                 "translation": {
                     "HI": "कुछ न करें|"
                 }
@@ -323,9 +345,9 @@
         "translation": {
             "HI": "लीकेज के कारण आपके घर की दीवारों पर लगा पेंट छिल रहा है।"
         },
-        "image": "/path/to/image",
+        "image": "event_8.png",
         "audio": {
-            "HI": "..."
+            "HI": "event_8.mp3"
         },
         "title": "The paint on the walls of your house is peeling off because of leakages."
     },
@@ -341,33 +363,37 @@
                     "current": 0.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_9_option_1.mp3"
+                },
                 "translation": {
-                    "HI": "दर्द के लिए दवा लें और काम पर जाएं"
+                    "HI": "दर्द के लिए दवा लें और काम पर जाएं|"
                 }
             },
             {
-                "description": "Visit a doctor",
+                "description": "Visit a doctor (TODO: ADD COST)",
                 "action": {
                     "expenditure": 0.0,
                     "debt": 0.0,
                     "current": 0.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_9_option_2.mp3"
+                },
                 "translation": {
-                    "HI": "डॉक्टर के पास जाएं"
+                    "HI": "डॉक्टर के पास जाएं|"
                 }
             }
         ],
         "probability": 0.5,
         "phase": 3,
         "translation": {
-            "HI": "..."
-        },
-        "image": "/path/to/image",
-        "audio": {
             "HI": "कुछ समय से आपकी पीठ बहुत दर्द कर रही है, लेकिन आपको काम पर जाना है, और आपके पास पेड लीव नहीं है | आप क्या करते हैं?"
+        },
+        "image": "event_9.png",
+        "audio": {
+            "HI": "event_9.mp3"
         },
         "title": "You have had a painful backache for a while, but you need to go to work and do not have paid leave. What do you do?"
     },
@@ -380,10 +406,12 @@
                 "action": {
                     "expenditure": 0.0,
                     "debt": 0.0,
-                    "current": 0.0,
+                    "current": -200.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_10_option_1.mp3"
+                },
                 "translation": {
                     "HI": "नल को ठीक करवाएं | (₹200 खर्च होंगे)"
                 }
@@ -396,7 +424,9 @@
                     "current": 0.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_10_option_2.mp3"
+                },
                 "translation": {
                     "HI": "कुछ न करें|"
                 }
@@ -407,9 +437,9 @@
         "translation": {
             "HI": "आपके बाथरूम में एक नल टपक रहा है|"
         },
-        "image": "/path/to/image",
+        "image": "event_10.png",
         "audio": {
-            "HI": "..."
+            "HI": "event_10.mp3"
         },
         "title": "A tap in your bathroom is leaky."
     },
@@ -422,10 +452,12 @@
                 "action": {
                     "expenditure": 0.0,
                     "debt": 0.0,
-                    "current": 0.0,
+                    "current": -250000.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_11_option_1.mp3"
+                },
                 "translation": {
                     "HI": "₹250000"
                 }
@@ -435,10 +467,12 @@
                 "action": {
                     "expenditure": 0.0,
                     "debt": 0.0,
-                    "current": 0.0,
+                    "current": -500000.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_11_option_2.mp3"
+                },
                 "translation": {
                     "HI": "₹500000"
                 }
@@ -449,9 +483,9 @@
         "translation": {
             "HI": "आपके भाई की शादी तय हुई है| आप अपनी ओर से शादी पर कितना खर्च करते हैं ?"
         },
-        "image": "/path/to/image",
+        "image": "event_11.png",
         "audio": {
-            "HI": "..."
+            "HI": "event_11.mp3"
         },
         "title": "Your brother is getting married. How much do you contribute towards the wedding?"
     },
@@ -464,12 +498,14 @@
                 "action": {
                     "expenditure": 0.0,
                     "debt": 0.0,
-                    "current": 0.0,
+                    "current": -2000.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_12_option_1.mp3"
+                },
                 "translation": {
-                    "HI": "उसे खरीदें (₹2000 खर्च होंगे)"
+                    "HI": "उसे खरीदें (₹2000 खर्च होंगे)|"
                 }
             },
             {
@@ -477,12 +513,14 @@
                 "action": {
                     "expenditure": 0.0,
                     "debt": 0.0,
-                    "current": 0.0,
+                    "current": -500.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_12_option_2.mp3"
+                },
                 "translation": {
-                    "HI": "कोई दूसरा खिलौना खरीदें (₹500 खर्च होंगे)"
+                    "HI": "कोई दूसरा खिलौना खरीदें (₹500 खर्च होंगे)|"
                 }
             }
         ],
@@ -491,9 +529,9 @@
         "translation": {
             "HI": "आपके बच्चे का जन्मदिन आ रहा है, और वे आपसे एक महंगा खिलौना मांगते है |"
         },
-        "image": "/path/to/image",
+        "image": "event_12.png",
         "audio": {
-            "HI": "..."
+            "HI": "event_12.mp3"
         },
         "title": "Your child's birthday is coming up, and they ask you for an expensive toy."
     },
@@ -509,109 +547,87 @@
                     "current": 0.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_13_option_1.mp3"
+                },
                 "translation": {
-                    "HI": ""
+                    "HI": "अपने बच्चे को खुद पढ़ाई में मदद करें"
                 }
             },
             {
-                "description": "Enroll them for coaching classes (adds to living expenses)",
+                "description": "Enroll them for after-class tuitions with a nearby teacher/tutor (Will cost ₹1500 per month for a year)",
                 "action": {
-                    "expenditure": 0.0,
+                    "expenditure": -1500.0,
                     "debt": 0.0,
                     "current": 0.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_13_option_2.mp3"
+                },
                 "translation": {
-                    "HI": ""
+                    "HI": "ट्यूशन टीचर के पास जाएं (हर महीने ₹1500 खर्च होंगे)"
                 }
             }
         ],
         "probability": 0.5,
         "phase": 3,
         "translation": {
-            "HI": "..."
+            "HI": "आपके बच्चे को पढाई में मुश्किल आ रही है"
         },
-        "image": "/path/to/image",
+        "image": "event_13.png",
         "audio": {
-            "HI": "..."
+            "HI": "event_13.mp3"
         },
         "title": "Your child has been struggling at school."
     },
     {
         "id": 14,
-        "description": "You have a back injury and have to be hospitalized.",
-        "options": [
-            {
-                "description": "NO OPTIONS HERE as such, amount deducted depends on whether insurance was taken or not",
-                "action": {
-                    "expenditure": 0.0,
-                    "debt": 0.0,
-                    "current": 0.0,
-                    "events": []
-                },
-                "audio": {},
-                "translation": {
-                    "HI": ""
-                }
-            }
-        ],
+        "description": "You have a severe back injury and have to be hospitalized.",
+        "options": [],
         "probability": 0.4,
         "phase": 4,
         "translation": {
-            "HI": "..."
+            "HI": "आपको पीठ में गहरी चोट लग जाती है और अस्पताल में एडमिट होना पड़ेगा"
         },
-        "image": "/path/to/image",
+        "image": "event_14.png",
         "audio": {
-            "HI": "..."
+            "HI": "event_14.mp3"
         },
-        "title": "You have a back injury and have to be hospitalized."
+        "title": "You have a severe back injury and have to be hospitalized."
     },
     {
         "id": 15,
-        "description": "Your ageing mother comes over to stay with you for a while. The bathroom floor is wet and slippery, which causes her to slip and fall. She needs to be hospitalized.",
-        "options": [
-            {
-                "description": "NO OPTIONS HERE as such, amount deducted depends on whether insurance was taken or not",
-                "action": {
-                    "expenditure": 0.0,
-                    "debt": 0.0,
-                    "current": 0.0,
-                    "events": []
-                },
-                "audio": {},
-                "translation": {
-                    "HI": ""
-                }
-            }
-        ],
+        "description": "The bathroom floor is wet and slippery, which causes your ageing mother to slip and fall. She needs to be hospitalized.",
+        "options": [],
         "probability": 0.3,
         "phase": 4,
         "translation": {
-            "HI": "..."
+            "HI": "बाथरूम का फर्श गीला और फिसलन भरा है, जिसके कारण आपकी बूढ़ी माँ फिसल कर गिर जाती है। उन्हें अस्पताल में एडमिट करने की जरूरत है।"
         },
-        "image": "/path/to/image",
+        "image": "event_15.png",
         "audio": {
-            "HI": "..."
+            "HI": "event_15.mp3"
         },
-        "title": "Your ageing mother comes over to stay with you for a while. The bathroom floor is wet and slippery, which causes her to slip and fall. She needs to be hospitalized."
+        "title": "The bathroom floor is wet and slippery, which causes your ageing mother to slip and fall. She needs to be hospitalized."
     },
     {
         "id": 16,
-        "description": "Your child's clothes are getting tight and worn out; they need new clothes.",
+        "description": "Your children's clothes are getting worn out; they need new clothes.",
         "options": [
             {
-                "description": "Buy them new clothes (Will cost ₹3000)",
+                "description": "Buy them new clothes (Will cost ₹4000)",
                 "action": {
                     "expenditure": 0.0,
                     "debt": 0.0,
-                    "current": 0.0,
+                    "current": -4000.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_16_option_1.mp3"
+                },
                 "translation": {
-                    "HI": ""
+                    "HI": "उनके लिए नए कपड़े खरीदें (₹4000 खर्च होंगे)"
                 }
             },
             {
@@ -622,36 +638,40 @@
                     "current": 0.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_16_option_2.mp3"
+                },
                 "translation": {
-                    "HI": ""
+                    "HI": "सेकंड-हैंड कपड़े लाएं -- (TODO : कोई बेहतर शब्द?)"
                 }
             }
         ],
         "probability": 0.6,
         "phase": 4,
         "translation": {
-            "HI": "..."
+            "HI": "आपके बच्चों के कपड़े पुराने और खराब हो रहे हैं; उन्हें नए कपड़ों की ज़रूरत है|"
         },
-        "image": "/path/to/image",
+        "image": "event_16.png",
         "audio": {
-            "HI": "..."
+            "HI": "event_16.mp3"
         },
-        "title": "Your child's clothes are getting tight and worn out; they need new clothes."
+        "title": "Your children's clothes are getting worn out; they need new clothes."
     },
     {
         "id": 17,
-        "description": "You need a cataract surgery.",
+        "description": "You need a ??? surgery.",
         "options": [
             {
-                "description": "NO OPTIONS HERE as such, amount deducted depends on whether insurance was taken or not",
+                "description": "amount deducted depends on whether insurance was taken or not",
                 "action": {
                     "expenditure": 0.0,
                     "debt": 0.0,
                     "current": 0.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":""
+                },
                 "translation": {
                     "HI": ""
                 }
@@ -662,11 +682,11 @@
         "translation": {
             "HI": "..."
         },
-        "image": "/path/to/image",
+        "image": "event_17.png",
         "audio": {
-            "HI": "..."
+            "HI": "event_17.mp3"
         },
-        "title": "You need a cataract surgery."
+        "title": "You need a ??? surgery."
     },
     {
         "id": 18,
@@ -677,12 +697,14 @@
                 "action": {
                     "expenditure": 0.0,
                     "debt": 0.0,
-                    "current": 0.0,
+                    "current": -100000000000.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_18_option_1.mp3"
+                },
                 "translation": {
-                    "HI": ""
+                    "HI": "उसे बैंक डिटेल्स बता दें"
                 }
             },
             {
@@ -693,9 +715,11 @@
                     "current": 0.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_18_option_2.mp3"
+                },
                 "translation": {
-                    "HI": ""
+                    "HI": "तुरंत कॉल काट दें"
                 }
             }
         ],
@@ -707,11 +731,11 @@
             4
         ],
         "translation": {
-            "HI": "..."
+            "HI": "आपको किसी व्यक्ति से कॉल आता है जो कहता है कि वह बैंक से है, और अगर आप अपने बैंक डिटेल्स उसे नहीं देंगे, तोह आपका खाता फ़्रीज़ कर दिया जायगा।"
         },
-        "image": "/path/to/image",
+        "image": "event_18.png",
         "audio": {
-            "HI": "..."
+            "HI": "event_18.mp3"
         },
         "title": "You receive a call from a person who claims that they're from the bank, and that your account will be frozen unless you provide your bank details."
     },
@@ -720,16 +744,18 @@
         "description": "A group of people from your neighbourhood have been collectively investing their money in a scheme that promises a higher interest rate than schemes available at banks. They ask you to join them. What do you do?",
         "options": [
             {
-                "description": "Accept",
+                "description": "Accept (Contribute ₹800 per month)",
                 "action": {
-                    "expenditure": 0.0,
+                    "expenditure": -800.0,
                     "debt": 0.0,
                     "current": 0.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_19_option_1.mp3"
+                },
                 "translation": {
-                    "HI": ""
+                    "HI": "उनके साथ शामिल हो जाएं (हर महीने ₹800 देने होंगे )"
                 }
             },
             {
@@ -740,59 +766,45 @@
                     "current": 0.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_19_option_2.mp3"
+                },
                 "translation": {
-                    "HI": ""
+                    "HI": "मना करें"
                 }
             }
         ],
         "probability": 0.5,
         "phase": [
-            1,
             2,
             3,
             4
         ],
         "translation": {
-            "HI": "..."
+            "HI": "आपके पड़ोस के लोग इकट्ठा होकर एक ऐसी योजना में अपना पैसा लगा रहा है जो बैंकों में उपलब्ध योजनाओं से ज़्यादा ब्याज देती है। वे आपको उनके साथ शामिल होने के लिए कहते हैं। आप क्या करते हैं?"
         },
-        "image": "/path/to/image",
+        "image": "event_19.png",
         "audio": {
-            "HI": "..."
+            "HI": "event_19.mp3"
         },
         "title": "A group of people from your neighbourhood have been collectively investing their money in a scheme that promises a higher interest rate than schemes available at banks. They ask you to join them. What do you do?"
     },
     {
         "id": 20,
         "description": "The neighbourhood scheme was a fraud, you lose all the money which you had invested.",
-        "options": [
-            {
-                "description": "NO OPTIONS HERE",
-                "action": {
-                    "expenditure": 0.0,
-                    "debt": 0.0,
-                    "current": 0.0,
-                    "events": []
-                },
-                "audio": {},
-                "translation": {
-                    "HI": ""
-                }
-            }
-        ],
+        "options": [],
         "probability": 0.0,
         "phase": [
-            1,
             2,
             3,
             4
         ],
         "translation": {
-            "HI": "..."
+            "HI": "पड़ोसियों वाली योजना एक धोखा निकली, आपने जो भी पैसा लगाया था वह सारा पैसा खो दिया।"
         },
-        "image": "/path/to/image",
+        "image": "event_20.png",
         "audio": {
-            "HI": "..."
+            "HI": "event_20.mp3"
         },
         "title": "The neighbourhood scheme was a fraud, you lose all the money which you had invested."
     },
@@ -805,12 +817,14 @@
                 "action": {
                     "expenditure": 0.0,
                     "debt": 0.0,
-                    "current": 0.0,
+                    "current": -2000.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_21_option_1.mp3"
+                },
                 "translation": {
-                    "HI": "पैसे सौंप दो|"
+                    "HI": "पैसे सौंप दें|"
                 }
             },
             {
@@ -821,7 +835,9 @@
                     "current": 0.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_21_option_2.mp3"
+                },
                 "translation": {
                     "HI": "लड़ने या भागने की कोशिश करें|"
                 }
@@ -837,9 +853,9 @@
         "translation": {
             "HI": "आप पर चोर ने हमला किया है! आप क्या करते हैं?"
         },
-        "image": "/path/to/image",
+        "image": "event_21.png",
         "audio": {
-            "HI": "..."
+            "HI": "event_21.mp3"
         },
         "title": "You have been attacked by a thief! What do you do?"
     },
@@ -847,20 +863,20 @@
         "id": 22,
         "description": "Your employer gives you a hefty bonus for Diwali.",
         "options": [],
-        "probability": 0.8,
+        "probability": 1,
         "phase": 3,
         "translation": {
             "HI": "आपके एम्प्लायर आपको दिवाली के लिए बहुत अच्छा बोनस देते है|"
         },
-        "image": "/path/to/image",
+        "image": "event_22.png",
         "audio": {
-            "HI": "..."
+            "HI": "event_22.mp3"
         },
         "title": "..."
     },
     {
         "id": 23,
-        "description": "(DECIDE: Advertise for the govt or no?) It is a good idea to buy an accident insurance policy. Do you want to enroll for the government's Pradhan Mantri Suraksha Bima Yojana scheme? The annual premium is ₹12, the cover amount is ₹2 lakh",
+        "description": "An accident insurance scheme would help in the unfortunate event of an accident. Do you want to enroll for the government's Pradhan Mantri Suraksha Bima Yojana scheme? The annual premium is ₹12, the cover amount is ₹2 lakh",
         "options": [
             {
                 "description": "Yes (Will cost ₹12 per year)",
@@ -870,9 +886,11 @@
                     "current": 0.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_23_option_1.mp3"
+                },
                 "translation": {
-                    "HI": ""
+                    "HI": "हाँ (हर साल बारह रुपये ही भरने है)"
                 }
             },
             {
@@ -883,26 +901,28 @@
                     "current": 0.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_23_option_2.mp3"
+                },
                 "translation": {
-                    "HI": ""
+                    "HI": "नहीं"
                 }
             }
         ],
         "probability": 1,
         "phase": 1,
         "translation": {
-            "HI": ""
+            "HI": "दुर्घटना बीमा योजना किसी दुर्भाग्यवश दुर्घटना में मदद करेगी। क्या आप सरकार की प्रधानमंत्री सुरक्षा बीमा योजना के लिए नामांकन करना चाहते हैं? वार्षिक प्रीमियम ₹12 है, कवर राशि ₹ 2 लाख है"
         },
-        "image": "/path/to/image",
+        "image": "event_23.png",
         "audio": {
-            "HI": "..."
+            "HI": "event_23.mp3"
         },
         "title": "..."
     },
     {
         "id": 24,
-        "description": "(DECIDE: Advertise for the govt or no?) It would be good to buy a life insurance policy. Do you want to enroll for the government's Pradhan Mantri Jeevan Jyoti Bima Yojana scheme? The annual premium is ₹330, the cover amount is ₹2 lakh",
+        "description": "Do you want to enroll for the government's Pradhan Mantri Jeevan Jyoti Bima Yojana scheme? The annual premium is ₹330, the cover amount is ₹2 lakh. The policy needs to be renewed every year.",
         "options": [
             {
                 "description": "Yes (Will cost ₹330 per year)",
@@ -912,9 +932,11 @@
                     "current": 0.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_24_option_1.mp3"
+                },
                 "translation": {
-                    "HI": ""
+                    "HI": "हाँ (हर साल ₹330 भरने है)"
                 }
             },
             {
@@ -925,20 +947,22 @@
                     "current": 0.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_24_option_2.mp3"
+                },
                 "translation": {
-                    "HI": ""
+                    "HI": "नहीं"
                 }
             }
         ],
         "probability": 1,
         "phase": 1,
         "translation": {
-            "HI": ""
+            "HI": "क्या आप सरकार की प्रधानमंत्री जीवन ज्योति बीमा योजना के लिए नामांकन करना चाहते हैं? हर साल ₹330 का प्रीमियम भरना है, कवर राशि ₹2 लाख है। पॉलिसी को हर साल रेनू करने की आवश्यकता है।"
         },
-        "image": "/path/to/image",
+        "image": "event_24.png",
         "audio": {
-            "HI": "..."
+            "HI": "event_24.mp3"
         },
         "title": "..."
     },
@@ -954,7 +978,9 @@
                     "current": 0.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_25_option_1.mp3"
+                },
                 "translation": {
                     "HI": ""
                 }
@@ -967,7 +993,9 @@
                     "current": 0.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_25_option_2.mp3"
+                },
                 "translation": {
                     "HI": ""
                 }
@@ -980,7 +1008,9 @@
                     "current": 0.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_25_option_3.mp3"
+                },
                 "translation": {
                     "HI": ""
                 }
@@ -993,7 +1023,9 @@
                     "current": 0.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_25_option_4.mp3"
+                },
                 "translation": {
                     "HI": ""
                 }
@@ -1004,27 +1036,29 @@
         "translation": {
             "HI": ""
         },
-        "image": "/path/to/image",
+        "image": "event_25.png",
         "audio": {
-            "HI": "..."
+            "HI": "event_25.mp3"
         },
         "title": "..."
     },
     {
         "id": 26,
-        "description": "(EMPTY/DUMMY EVENT -- Remove if not filled later) It is a good idea to buy an ... insurance policy. Do you want to buy XYZ? The annual premium is ₹, the cover amount is ₹",
+        "description": "It would be good to buy a life insurance policy. Do you want to buy an LIC policy with an assured sum of ₹ 1 lakh? The monthly premium is ₹500.",
         "options": [
             {
-                "description": "Yes (Will cost ₹ per )",
+                "description": "Yes (Will cost ₹500 per month)",
                 "action": {
-                    "expenditure": 0.0,
+                    "expenditure": -500.0,
                     "debt": 0.0,
                     "current": 0.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_26_option_1.mp3"
+                },
                 "translation": {
-                    "HI": ""
+                    "HI": "हाँ (हर महीने ₹500 भरने है)"
                 }
             },
             {
@@ -1035,20 +1069,22 @@
                     "current": 0.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_26_option_2.mp3"
+                },
                 "translation": {
-                    "HI": ""
+                    "HI": "नहीं"
                 }
             }
         ],
         "probability": 1,
         "phase": 1,
         "translation": {
-            "HI": ""
+            "HI": "जीवन बीमा पॉलिसी खरीदना अच्छा होगा। क्या आप ₹ 1 लाख की सुनिश्चित राशि वाली LIC पॉलिसी खरीदना चाहते हैं? मासिक प्रीमियम ₹ 500 है।"
         },
-        "image": "/path/to/image",
+        "image": "event_26.png",
         "audio": {
-            "HI": "..."
+            "HI": "event_26.mp3"
         },
         "title": "..."
     },
@@ -1057,42 +1093,48 @@
         "description": "Do you want to apply for the Atal Pension Yojana scheme?",
         "options": [
             {
-                "description": "Yes (To get a monthly pension of ₹1000, will cost ₹50 per month)",
+                "description": "Yes (To get a monthly pension of ₹1000 on reaching age 60, will have to pay ₹50 per month until you turn 60)",
                 "action": {
-                    "expenditure": 0.0,
+                    "expenditure": -50.0,
                     "debt": 0.0,
                     "current": 0.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_27_option_1.mp3"
+                },
                 "translation": {
-                    "HI": ""
+                    "HI": "हाँ (60 साल के हो जाने पर, हर महीने ₹1000 की पेंशन पाने के लिए, अभी आपको 60 साल की उम्र तक हर महीने ₹50 भरने होंगे)"
                 }
             },
             {
-                "description": "Yes (To get a monthly pension of ₹2000, will cost ₹100 per month)",
+                "description": "Yes (To get a monthly pension of ₹2000 on reaching age 60, will have to pay ₹100 per month until you turn 60)",
                 "action": {
-                    "expenditure": 0.0,
+                    "expenditure": -100.0,
                     "debt": 0.0,
                     "current": 0.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_27_option_2.mp3"
+                },
                 "translation": {
-                    "HI": ""
+                    "HI": "हाँ (60 साल के हो जाने पर, हर महीने ₹2000 की पेंशन पाने के लिए, अभी आपको 60 साल की उम्र तक हर महीने ₹100 भरने होंगे)"
                 }
             },
             {
-                "description": "Yes (To get a monthly pension of ₹3000, will cost ₹150 per month)",
+                "description": "Yes (To get a monthly pension of ₹3000 on reaching age 60, will have to pay ₹150 per month until you turn 60)",
                 "action": {
-                    "expenditure": 0.0,
+                    "expenditure": -150.0,
                     "debt": 0.0,
                     "current": 0.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_27_option_3.mp3"
+                },
                 "translation": {
-                    "HI": ""
+                    "HI": "हाँ (60 साल के हो जाने पर, हर महीने ₹3000 की पेंशन पाने के लिए, अभी आपको 60 साल की उम्र तक हर महीने ₹150 भरने होंगे)"
                 }
             },
             {
@@ -1103,20 +1145,22 @@
                     "current": 0.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_27_option_4.mp3"
+                },
                 "translation": {
-                    "HI": ""
+                    "HI": "नहीं"
                 }
             }
         ],
         "probability": 1,
         "phase": 1,
         "translation": {
-            "HI": ""
+            "HI": "क्या आप अटल पेंशन योजना के लिए अप्लाई करना चाहते हैं?"
         },
-        "image": "/path/to/image",
+        "image": "event_27.png",
         "audio": {
-            "HI": "..."
+            "HI": "event_27.mp3"
         },
         "title": "..."
     },
@@ -1125,42 +1169,48 @@
         "description": "Do you want to apply for the Atal Pension Yojana scheme?",
         "options": [
             {
-                "description": "Yes (To get a monthly pension of ₹1000, will cost ₹116 per month)",
+                "description": "Yes (To get a monthly pension of ₹1000 on reaching age 60, will have to pay ₹116 per month until you turn 60)",
                 "action": {
-                    "expenditure": 0.0,
+                    "expenditure": -116.0,
                     "debt": 0.0,
                     "current": 0.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_28_option_1.mp3"
+                },
                 "translation": {
-                    "HI": ""
+                    "HI": "हाँ (60 साल के हो जाने पर, हर महीने ₹1000 की पेंशन पाने के लिए, अभी आपको 60 साल की उम्र तक हर महीने ₹116 भरने होंगे)"
                 }
             },
             {
-                "description": "Yes (To get a monthly pension of ₹2000, will cost ₹231 per month)",
+                "description": "Yes (To get a monthly pension of ₹2000 on reaching age 60, will have to pay ₹231 per month until you turn 60)",
                 "action": {
-                    "expenditure": 0.0,
+                    "expenditure": -231.0,
                     "debt": 0.0,
                     "current": 0.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_28_option_2.mp3"
+                },
                 "translation": {
-                    "HI": ""
+                    "HI": "हाँ (60 साल के हो जाने पर, हर महीने ₹2000 की पेंशन पाने के लिए, अभी आपको 60 साल की उम्र तक हर महीने ₹231 भरने होंगे)"
                 }
             },
             {
-                "description": "Yes (To get a monthly pension of ₹3000, will cost ₹347 per month)",
+                "description": "Yes (To get a monthly pension of ₹3000 on reaching age 60, will have to pay ₹347 per month until you turn 60)",
                 "action": {
-                    "expenditure": 0.0,
+                    "expenditure": -347.0,
                     "debt": 0.0,
                     "current": 0.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_28_option_3.mp3"
+                },
                 "translation": {
-                    "HI": ""
+                    "HI": "हाँ (60 साल के हो जाने पर, हर महीने ₹3000 की पेंशन पाने के लिए, अभी आपको 60 साल की उम्र तक हर महीने ₹347 भरने होंगे)"
                 }
             },
             {
@@ -1171,20 +1221,22 @@
                     "current": 0.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_28_option_4.mp3"
+                },
                 "translation": {
-                    "HI": ""
+                    "HI": "नहीं"
                 }
             }
         ],
         "probability": 0,
         "phase": 2,
         "translation": {
-            "HI": ""
+            "HI": "क्या आप अटल पेंशन योजना के लिए अप्लाई करना चाहते हैं?"
         },
-        "image": "/path/to/image",
+        "image": "event_28.png",
         "audio": {
-            "HI": "..."
+            "HI": "event_28.mp3"
         },
         "title": "..."
     },
@@ -1193,42 +1245,48 @@
         "description": "Do you want to apply for the Atal Pension Yojana scheme?",
         "options": [
             {
-                "description": "Yes (To get a monthly pension of ₹1000, will cost ₹291 per month)",
+                "description": "Yes (To get a monthly pension of ₹1000 on reaching age 60, will have to pay ₹291 per month until you turn 60)",
                 "action": {
-                    "expenditure": 0.0,
+                    "expenditure": -291.0,
                     "debt": 0.0,
                     "current": 0.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_29_option_1.mp3"
+                },
                 "translation": {
-                    "HI": ""
+                    "HI": "हाँ (60 साल के हो जाने पर, हर महीने ₹1000 की पेंशन पाने के लिए, अभी आपको 60 साल की उम्र तक हर महीने ₹291 भरने होंगे)"
                 }
             },
             {
-                "description": "Yes (To get a monthly pension of ₹2000, will cost ₹582 per month)",
+                "description": "Yes (To get a monthly pension of ₹2000 on reaching age 60, will have to pay ₹582 per month until you turn 60)",
                 "action": {
-                    "expenditure": 0.0,
+                    "expenditure": -582.0,
                     "debt": 0.0,
                     "current": 0.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_29_option_2.mp3"
+                },
                 "translation": {
-                    "HI": ""
+                    "HI": "हाँ (60 साल के हो जाने पर, हर महीने ₹2000 की पेंशन पाने के लिए, अभी आपको 60 साल की उम्र तक हर महीने ₹582 भरने होंगे)"
                 }
             },
             {
-                "description": "Yes (To get a monthly pension of ₹3000, will cost ₹873 per month)",
+                "description": "Yes (To get a monthly pension of ₹3000 on reaching age 60, will have to pay ₹873 per month until you turn 60)",
                 "action": {
-                    "expenditure": 0.0,
+                    "expenditure": -873.0,
                     "debt": 0.0,
                     "current": 0.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_29_option_3.mp3"
+                },
                 "translation": {
-                    "HI": ""
+                    "HI": "हाँ (60 साल के हो जाने पर, हर महीने ₹3000 की पेंशन पाने के लिए, अभी आपको 60 साल की उम्र तक हर महीने ₹873 भरने होंगे)"
                 }
             },
             {
@@ -1239,20 +1297,114 @@
                     "current": 0.0,
                     "events": []
                 },
-                "audio": {},
+                "audio": {
+                    "HI":"event_29_option_4.mp3"
+                },
                 "translation": {
-                    "HI": ""
+                    "HI": "नहीं"
                 }
             }
         ],
         "probability": 0,
         "phase": 3,
         "translation": {
+            "HI": "क्या आप अटल पेंशन योजना के लिए अप्लाई करना चाहते हैं?"
+        },
+        "image": "event_29.png",
+        "audio": {
+            "HI": "event_29.mp3"
+        },
+        "title": "..."
+    },
+    {
+        "id": 30,
+        "description": "You have a bad ????. What do you do?",
+        "options": [
+            {
+                "description": "Visit ....",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {
+                    "HI":"event_30_option_1.mp3"
+                },
+                "translation": {
+                    "HI": ""
+                }
+            },
+            {
+                "description": "Take a painkiller",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {
+                    "HI":"event_30_option_1.mp3"
+                },
+                "translation": {
+                    "HI": ""
+                }
+            }
+        ],
+        "probability": 0.65,
+        "phase": 1,
+        "translation": {
             "HI": ""
         },
-        "image": "/path/to/image",
+        "image": "event_30.png",
         "audio": {
-            "HI": "..."
+            "HI": "event_30.mp3"
+        },
+        "title": "..."
+    },
+    {
+        "id": 31,
+        "description": "Do you want to open a recurring deposit account?",
+        "options": [
+            {
+                "description": "",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {
+                    "HI":"event_31_option_1.mp3"
+                },
+                "translation": {
+                    "HI": ""
+                }
+            },
+            {
+                "description": "",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {
+                    "HI":"event_31_option_2.mp3"
+                },
+                "translation": {
+                    "HI": ""
+                }
+            }
+        ],
+        "probability": 0.65,
+        "phase": 1,
+        "translation": {
+            "HI": ""
+        },
+        "image": "event_31.png",
+        "audio": {
+            "HI": "event_31.mp3"
         },
         "title": "..."
     }
