@@ -27,6 +27,7 @@ async def get_game_state(resume: uuid.UUID = None, db: AsyncIOMotorClient = Depe
         state = State(code=code)
         levels = db.core.levels.find()
         state.remaining = [Level(**level) async for level in levels]
+        db.core.states.insert_one(state.dict())
     else:
         state = State(**_state)
     return StateInResponse(data=state)

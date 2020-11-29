@@ -4,6 +4,7 @@
         "description": "You need to help pay for your younger brother's school fees. How much do you pay? (Other family members will pay the rest)",
         "options": [
             {
+                "id":1,
                 "description": "Pay ₹2000",
                 "action": {
                     "expenditure": 0.0,
@@ -19,6 +20,7 @@
                 }
             },
             {
+                "id":2,
                 "description": "Pay ₹5000",
                 "action": {
                     "expenditure": 0.0,
@@ -50,12 +52,17 @@
         "description": "You get a job offer in another city, with better pay. Do you accept the offer?",
         "options": [
             {
+                "id":1,
                 "description": "Accept the offer",
                 "action": {
                     "expenditure": 0.0,
                     "debt": 0.0,
                     "current": 0.0,
-                    "events": [3]
+                    "events": [ {
+                                    "id": 3,
+                                    "probability": 1.0
+                                }
+                            ]
                 },
                 "audio": {
                     "HI": "event_2_option_1.mp3"
@@ -65,12 +72,13 @@
                 }
             },
             {
+                "id":2,
                 "description": "Refuse",
                 "action": {
                     "expenditure": 0.0,
                     "debt": 0.0,
                     "current": 0.0,
-                    "events": [3]
+                    "events": []
                 },
                 "audio": {
                     "HI": "event_2_option_2.mp3"
@@ -96,9 +104,10 @@
         "description": "You look for a place to stay in this new city. You have 2 options: Number 1. Rent Rs 4000 per month; shared with 2 other people; commuting will cost 20 Rs per day. Number 2. Rent Rs 2000 per month; shared with 4 other people; commuting will cost 40 Rs per day. Which option do you choose?",
         "options": [
             {
+                "id":1,
                 "description": "Option 1",
                 "action": {
-                    "expenditure": -4600.0,
+                    "expenditure": 4600.0,
                     "debt": 0.0,
                     "current": 0.0,
                     "events": []
@@ -111,9 +120,10 @@
                 }
             },
             {
+                "id":2,
                 "description": "Option 2",
                 "action": {
-                    "expenditure": -3200.0,
+                    "expenditure": 3200.0,
                     "debt": 0.0,
                     "current": 0.0,
                     "events": []
@@ -142,6 +152,7 @@
         "description": "Your family members try to convince you to get married. What do you do?",
         "options": [
             {
+                "id":1,
                 "description": "Agree to get married (You have to spend Rs 60000 on your part, family members will take care of the rest)",
                 "action": {
                     "expenditure": 0.0,
@@ -157,12 +168,17 @@
                 }
             },
             {
+                "id":2,
                 "description": "Will do it later",
                 "action": {
                     "expenditure": 0.0,
                     "debt": 0.0,
                     "current": 0.0,
-                    "events": []
+                    "events": [ {
+                                    "id": 5,
+                                    "probability": 1.0
+                                }
+                            ]
                 },
                 "audio": {
                     "HI":"event_4_option_2.mp3"
@@ -188,6 +204,7 @@
         "description": "You get married. How much do you spend on the wedding from your end?",
         "options": [
             {
+                "id":1,
                 "description": "Spend Rs 1 lakh, family members will take care of the rest",
                 "action": {
                     "expenditure": 0.0,
@@ -203,6 +220,7 @@
                 }
             },
             {
+                "id":2,
                 "description": "Spend Rs 1.5 lakh, family members will take care of the rest",
                 "action": {
                     "expenditure": 0.0,
@@ -232,7 +250,24 @@
     {
         "id": 6,
         "description": "You have kids. The family members living with you now include your parents, your spouse, and your kids.",
-        "options": [],
+        "options": [
+            {
+                "id":1,
+                "description": "Ok",
+                "action": {
+                    "expenditure": 2000.0,
+                    "debt": 0.0,
+                    "current": 0.0,
+                    "events": []
+                },
+                "audio": {
+                    "HI":"event_6_option_1.mp3"
+                },
+                "translation": {
+                    "HI": "ठीक है"
+                }
+            }
+        ],
         "probability": 1.0,
         "phase": 2,
         "translation": {
@@ -249,6 +284,7 @@
         "description": "Your eyesight gets weaker",
         "options": [
             {
+                "id":1,
                 "description": "Get an eye check-up done and buy spectacles (Needs ₹2500)",
                 "action": {
                     "expenditure": 0.0,
@@ -264,6 +300,7 @@
                 }
             },
             {
+                "id":2,
                 "description": "Ignore it",
                 "action": {
                     "expenditure": 0.0,
@@ -295,6 +332,7 @@
         "description": "The paint on the walls of your house is peeling off because of leakages.",
         "options": [
             {
+                "id":1,
                 "description": "Repair the leakages and also get the walls repainted (₹8000)",
                 "action": {
                     "expenditure": 0.0,
@@ -310,6 +348,7 @@
                 }
             },
             {
+                "id":2,
                 "description": "Only repair the leakages (₹500)",
                 "action": {
                     "expenditure": 0.0,
@@ -325,12 +364,17 @@
                 }
             },
             {
+                "id":3,
                 "description": "Let it be",
                 "action": {
                     "expenditure": 0.0,
                     "debt": 0.0,
                     "current": 0.0,
-                    "events": []
+                    "events": [ {
+                                    "id": 15,
+                                    "probability": 0.2 
+                                }
+                            ]
                 },
                 "audio": {
                     "HI":"event_8_option_3.mp3"
@@ -356,12 +400,17 @@
         "description": "You have had a painful backache for a while, but you need to go to work and do not have paid leave. What do you do?",
         "options": [
             {
+                "id":1,
                 "description": "Take a painkiller and go to work",
                 "action": {
                     "expenditure": 0.0,
                     "debt": 0.0,
                     "current": 0.0,
-                    "events": []
+                    "events": [ {
+                                    "id": 14,
+                                    "probability": 0.2 
+                                }
+                            ]
                 },
                 "audio": {
                     "HI":"event_9_option_1.mp3"
@@ -371,6 +420,7 @@
                 }
             },
             {
+                "id":2,
                 "description": "Visit a doctor (will cost ₹700)",
                 "action": {
                     "expenditure": 0.0,
@@ -402,6 +452,7 @@
         "description": "A tap in your bathroom is leaky.",
         "options": [
             {
+                "id":1,
                 "description": "Get it repaired (will cost ₹200)",
                 "action": {
                     "expenditure": 0.0,
@@ -417,12 +468,17 @@
                 }
             },
             {
+                "id":2,
                 "description": "Ignore it",
                 "action": {
                     "expenditure": 0.0,
                     "debt": 0.0,
                     "current": 0.0,
-                    "events": []
+                    "events": [ {
+                                    "id": 15,
+                                    "probability": 0.3 
+                                }
+                            ]
                 },
                 "audio": {
                     "HI":"event_10_option_2.mp3"
@@ -448,6 +504,7 @@
         "description": "Your brother is getting married. How much do you contribute towards the wedding?",
         "options": [
             {
+                "id":1,
                 "description": "₹200000",
                 "action": {
                     "expenditure": 0.0,
@@ -463,6 +520,7 @@
                 }
             },
             {
+                "id":2,
                 "description": "₹300000",
                 "action": {
                     "expenditure": 0.0,
@@ -494,6 +552,7 @@
         "description": "Your child's birthday is coming up, and they ask you for an expensive toy.",
         "options": [
             {
+                "id":1,
                 "description": "Buy it (will cost ₹2000)",
                 "action": {
                     "expenditure": 0.0,
@@ -509,6 +568,7 @@
                 }
             },
             {
+                "id":2,
                 "description": "Buy them a cheaper toy (will cost ₹500)",
                 "action": {
                     "expenditure": 0.0,
@@ -540,6 +600,7 @@
         "description": "Your child has been struggling at school.",
         "options": [
             {
+                "id":1,
                 "description": "Tutor your child yourself",
                 "action": {
                     "expenditure": 0.0,
@@ -555,9 +616,10 @@
                 }
             },
             {
+                "id":2,
                 "description": "Enroll them for after-class tuitions with a nearby teacher/tutor (Will cost ₹1500 per month for a year)",
                 "action": {
-                    "expenditure": -1500.0,
+                    "expenditure": 1500.0,
                     "debt": 0.0,
                     "current": 0.0,
                     "events": []
@@ -584,7 +646,24 @@
     {
         "id": 14,
         "description": "Your back gets injured badly and you have to be hospitalized.",
-        "options": [],
+        "options": [
+            {
+                "id":1,
+                "description": "Oh no...",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": -150000.0,
+                    "events": []
+                },
+                "audio": {
+                    "HI":"event_14_option_1.mp3"
+                },
+                "translation": {
+                    "HI": "अरे नहीं..."
+                }
+            }
+        ],
         "probability": 0.4,
         "phase": 4,
         "translation": {
@@ -599,7 +678,24 @@
     {
         "id": 15,
         "description": "The bathroom floor is wet and slippery, which causes your ageing mother to slip and fall. She needs to be hospitalized.",
-        "options": [],
+        "options": [
+            {
+                "id":1,
+                "description": "Oh no...",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": -200000.0,
+                    "events": []
+                },
+                "audio": {
+                    "HI":"event_15_option_1.mp3"
+                },
+                "translation": {
+                    "HI": "अरे नहीं..."
+                }
+            }
+        ],
         "probability": 0.3,
         "phase": 4,
         "translation": {
@@ -616,6 +712,7 @@
         "description": "Your children's clothes are getting worn out; they need new clothes.",
         "options": [
             {
+                "id":1,
                 "description": "Buy them new clothes (Will cost ₹4000)",
                 "action": {
                     "expenditure": 0.0,
@@ -631,6 +728,7 @@
                 }
             },
             {
+                "id":2,
                 "description": "Get second-hand clothes",
                 "action": {
                     "expenditure": 0.0,
@@ -660,7 +758,24 @@
     {
         "id": 17,
         "description": "You fall ill with dengue and have to be hospitalized.",
-        "options": [],
+        "options": [
+            {
+                "id":1,
+                "description": "Oh no...",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": -200000.0,
+                    "events": []
+                },
+                "audio": {
+                    "HI":"event_17_option_1.mp3"
+                },
+                "translation": {
+                    "HI": "अरे नहीं..."
+                }
+            }
+        ],
         "probability": 0.7,
         "phase": 4,
         "translation": {
@@ -677,6 +792,7 @@
         "description": "You receive a call from a person who claims that they're from the bank, and that your account will be frozen unless you provide your bank details.",
         "options": [
             {
+                "id":1,
                 "description": "You provide your bank details.",
                 "action": {
                     "expenditure": 0.0,
@@ -692,6 +808,7 @@
                 }
             },
             {
+                "id":2,
                 "description": "You cut the call immediately",
                 "action": {
                     "expenditure": 0.0,
@@ -728,12 +845,17 @@
         "description": "A group of people from your neighbourhood have been collectively investing their money in a scheme that promises a higher interest rate than schemes available at banks. They ask you to join them. What do you do?",
         "options": [
             {
+                "id":1,
                 "description": "Accept (Contribute ₹800 per month)",
                 "action": {
-                    "expenditure": -800.0,
+                    "expenditure": 800.0,
                     "debt": 0.0,
                     "current": 0.0,
-                    "events": []
+                    "events": [ {
+                                    "id": 20,
+                                    "probability": 1
+                                }
+                            ]
                 },
                 "audio": {
                     "HI":"event_19_option_1.mp3"
@@ -743,6 +865,7 @@
                 }
             },
             {
+                "id":2,
                 "description": "Refuse",
                 "action": {
                     "expenditure": 0.0,
@@ -776,7 +899,24 @@
     {
         "id": 20,
         "description": "The neighbourhood scheme was a fraud, you lose all the money which you had invested.",
-        "options": [],
+        "options": [
+            {
+                "id":1,
+                "description": "Oh no...",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": -10000.0,
+                    "events": []
+                },
+                "audio": {
+                    "HI":"event_20_option_1.mp3"
+                },
+                "translation": {
+                    "HI": "अरे नहीं..."
+                }
+            }
+        ],
         "probability": 0.0,
         "phase": [
             2,
@@ -797,6 +937,7 @@
         "description": "You have been attacked by a thief! What do you do?",
         "options": [
             {
+                "id":1,
                 "description": "Hand over money",
                 "action": {
                     "expenditure": 0.0,
@@ -812,6 +953,7 @@
                 }
             },
             {
+                "id":2,
                 "description": "Try to fight off or run away",
                 "action": {
                     "expenditure": 0.0,
@@ -846,7 +988,24 @@
     {
         "id": 22,
         "description": "Your employer gives you a hefty bonus for Diwali.",
-        "options": [],
+        "options": [
+            {
+                "id":1,
+                "description": "That's great!",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 20000.0,
+                    "events": []
+                },
+                "audio": {
+                    "HI":"event_22_option_1.mp3"
+                },
+                "translation": {
+                    "HI": "अरे वाह!"
+                }
+            }
+        ],
         "probability": 1,
         "phase": 3,
         "translation": {
@@ -863,9 +1022,10 @@
         "description": "An accident insurance scheme would help in the unfortunate event of an accident. Do you want to enroll for the government's Pradhan Mantri Suraksha Bima Yojana scheme? The annual premium is ₹12, the cover amount is ₹2 lakh",
         "options": [
             {
+                "id":1,
                 "description": "Yes (Will cost ₹12 per year)",
                 "action": {
-                    "expenditure": -1.0,
+                    "expenditure": 1.0,
                     "debt": 0.0,
                     "current": 0.0,
                     "events": []
@@ -878,6 +1038,7 @@
                 }
             },
             {
+                "id":2,
                 "description": "No",
                 "action": {
                     "expenditure": 0.0,
@@ -909,9 +1070,10 @@
         "description": "Do you want to enroll for the government's Pradhan Mantri Jeevan Jyoti Bima Yojana scheme? The annual premium is ₹330, the cover amount is ₹2 lakh. The policy needs to be renewed every year.",
         "options": [
             {
+                "id":1,
                 "description": "Yes (Will cost ₹330 per year)",
                 "action": {
-                    "expenditure":-27.5,
+                    "expenditure": 27.5,
                     "debt": 0.0,
                     "current": 0.0,
                     "events": []
@@ -924,6 +1086,7 @@
                 }
             },
             {
+                "id":2,
                 "description": "No",
                 "action": {
                     "expenditure": 0.0,
@@ -955,9 +1118,10 @@
         "description": "Do you want to buy a health insurance policy?",
         "options": [
             {
+                "id":1,
                 "description": "Yes, buy an individual plan whose annual premium is ₹5000, and the cover amount is ₹2 lakh",
                 "action": {
-                    "expenditure": -416.66,
+                    "expenditure": 416.66,
                     "debt": 0.0,
                     "current": 0.0,
                     "events": []
@@ -970,9 +1134,10 @@
                 }
             },
             {
+                "id":2,
                 "description": "Yes, buy a family plan whose annual premium is ₹6000, the cover amount is ₹3 lakh, and it includes your spouse and children",
                 "action": {
-                    "expenditure": -500.0,
+                    "expenditure": 500.0,
                     "debt": 0.0,
                     "current": 0.0,
                     "events": []
@@ -985,9 +1150,10 @@
                 }
             },
             {
+                "id":3,
                 "description": "Yes, buy a family plan whose annual premium is ₹10000, the cover amount is ₹3 lakh, and it includes your parents, spouse and children",
                 "action": {
-                    "expenditure": -833.33,
+                    "expenditure": 833.33,
                     "debt": 0.0,
                     "current": 0.0,
                     "events": []
@@ -1000,6 +1166,7 @@
                 }
             },
             {
+                "id":4,
                 "description": "No, don't want to buy a health insurance policy",
                 "action": {
                     "expenditure": 0.0,
@@ -1031,9 +1198,10 @@
         "description": "It would be good to buy a life insurance policy. Do you want to buy an LIC policy with an assured sum of ₹ 1 lakh? The monthly premium is ₹500.",
         "options": [
             {
+                "id":1,
                 "description": "Yes (Will cost ₹500 per month)",
                 "action": {
-                    "expenditure": -500.0,
+                    "expenditure": 500.0,
                     "debt": 0.0,
                     "current": 0.0,
                     "events": []
@@ -1046,6 +1214,7 @@
                 }
             },
             {
+                "id":2,
                 "description": "No",
                 "action": {
                     "expenditure": 0.0,
@@ -1077,9 +1246,10 @@
         "description": "Do you want to apply for the Atal Pension Yojana scheme?",
         "options": [
             {
+                "id":1,
                 "description": "Yes (To get a monthly pension of ₹1000 on reaching age 60, will have to pay ₹50 per month until you turn 60)",
                 "action": {
-                    "expenditure": -50.0,
+                    "expenditure": 50.0,
                     "debt": 0.0,
                     "current": 0.0,
                     "events": []
@@ -1092,9 +1262,10 @@
                 }
             },
             {
+                "id":2,
                 "description": "Yes (To get a monthly pension of ₹2000 on reaching age 60, will have to pay ₹100 per month until you turn 60)",
                 "action": {
-                    "expenditure": -100.0,
+                    "expenditure": 100.0,
                     "debt": 0.0,
                     "current": 0.0,
                     "events": []
@@ -1107,9 +1278,10 @@
                 }
             },
             {
+                "id":3,
                 "description": "Yes (To get a monthly pension of ₹3000 on reaching age 60, will have to pay ₹150 per month until you turn 60)",
                 "action": {
-                    "expenditure": -150.0,
+                    "expenditure": 150.0,
                     "debt": 0.0,
                     "current": 0.0,
                     "events": []
@@ -1122,12 +1294,17 @@
                 }
             },
             {
+                "id":4,
                 "description": "No",
                 "action": {
                     "expenditure": 0.0,
                     "debt": 0.0,
                     "current": 0.0,
-                    "events": []
+                    "events": [ {
+                                    "id": 28,
+                                    "probability": 1.0 
+                                }
+                            ]
                 },
                 "audio": {
                     "HI":"event_27_option_4.mp3"
@@ -1153,9 +1330,10 @@
         "description": "Do you want to apply for the Atal Pension Yojana scheme?",
         "options": [
             {
+                "id":1,
                 "description": "Yes (To get a monthly pension of ₹1000 on reaching age 60, will have to pay ₹116 per month until you turn 60)",
                 "action": {
-                    "expenditure": -116.0,
+                    "expenditure": 116.0,
                     "debt": 0.0,
                     "current": 0.0,
                     "events": []
@@ -1168,9 +1346,10 @@
                 }
             },
             {
+                "id":2,
                 "description": "Yes (To get a monthly pension of ₹2000 on reaching age 60, will have to pay ₹231 per month until you turn 60)",
                 "action": {
-                    "expenditure": -231.0,
+                    "expenditure": 231.0,
                     "debt": 0.0,
                     "current": 0.0,
                     "events": []
@@ -1183,9 +1362,10 @@
                 }
             },
             {
+                "id":3,
                 "description": "Yes (To get a monthly pension of ₹3000 on reaching age 60, will have to pay ₹347 per month until you turn 60)",
                 "action": {
-                    "expenditure": -347.0,
+                    "expenditure": 347.0,
                     "debt": 0.0,
                     "current": 0.0,
                     "events": []
@@ -1198,12 +1378,17 @@
                 }
             },
             {
+                "id":4,
                 "description": "No",
                 "action": {
                     "expenditure": 0.0,
                     "debt": 0.0,
                     "current": 0.0,
-                    "events": []
+                    "events": [ {
+                                    "id": 29,
+                                    "probability": 1.0 
+                                }
+                            ]
                 },
                 "audio": {
                     "HI":"event_28_option_4.mp3"
@@ -1229,9 +1414,10 @@
         "description": "Do you want to apply for the Atal Pension Yojana scheme?",
         "options": [
             {
+                "id":1,
                 "description": "Yes (To get a monthly pension of ₹1000 on reaching age 60, will have to pay ₹291 per month until you turn 60)",
                 "action": {
-                    "expenditure": -291.0,
+                    "expenditure": 291.0,
                     "debt": 0.0,
                     "current": 0.0,
                     "events": []
@@ -1244,9 +1430,10 @@
                 }
             },
             {
+                "id":2,
                 "description": "Yes (To get a monthly pension of ₹2000 on reaching age 60, will have to pay ₹582 per month until you turn 60)",
                 "action": {
-                    "expenditure": -582.0,
+                    "expenditure": 582.0,
                     "debt": 0.0,
                     "current": 0.0,
                     "events": []
@@ -1259,9 +1446,10 @@
                 }
             },
             {
+                "id":3,
                 "description": "Yes (To get a monthly pension of ₹3000 on reaching age 60, will have to pay ₹873 per month until you turn 60)",
                 "action": {
-                    "expenditure": -873.0,
+                    "expenditure": 873.0,
                     "debt": 0.0,
                     "current": 0.0,
                     "events": []
@@ -1274,6 +1462,7 @@
                 }
             },
             {
+                "id":4,
                 "description": "No",
                 "action": {
                     "expenditure": 0.0,
@@ -1303,7 +1492,24 @@
     {
         "id": 30,
         "description": "Your uncle sold some old family-owned land and you get a share of the money acquired",
-        "options": [],
+        "options": [
+            {
+                "id":1,
+                "description": "Ok",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": 500000.0,
+                    "events": []
+                },
+                "audio": {
+                    "HI":"event_30_option_1.mp3"
+                },
+                "translation": {
+                    "HI": "ठीक है"
+                }
+            }
+        ],
         "probability": 0.8,
         "phase": 2,
         "translation": {
@@ -1312,52 +1518,6 @@
         "image": "event_30.png",
         "audio": {
             "HI": "event_30.mp3"
-        },
-        "title": "..."
-    },
-    {
-        "id": 31,
-        "description": "Do you want to open a recurring deposit account?",
-        "options": [
-            {
-                "description": "",
-                "action": {
-                    "expenditure": 0.0,
-                    "debt": 0.0,
-                    "current": 0.0,
-                    "events": []
-                },
-                "audio": {
-                    "HI":"event_31_option_1.mp3"
-                },
-                "translation": {
-                    "HI": ""
-                }
-            },
-            {
-                "description": "",
-                "action": {
-                    "expenditure": 0.0,
-                    "debt": 0.0,
-                    "current": 0.0,
-                    "events": []
-                },
-                "audio": {
-                    "HI":"event_31_option_2.mp3"
-                },
-                "translation": {
-                    "HI": ""
-                }
-            }
-        ],
-        "probability": 0.65,
-        "phase": 1,
-        "translation": {
-            "HI": ""
-        },
-        "image": "event_31.png",
-        "audio": {
-            "HI": "event_31.mp3"
         },
         "title": "..."
     }

@@ -6,10 +6,16 @@ from pydantic import Field
 from .base import Base, ObjectID
 
 
-class TransType(Enum):
-    EN = 'EN'
-    HI = 'HI'
-    MH = 'MH'
+# class TransType(Enum):
+#     EN = 'EN'
+#     HI = 'HI'
+#     MH = 'MH'
+
+#     def __repr__(self):
+#         return str(self.value)
+
+#     def __str__(self):
+#         return str(self.value)
 
 
 class Phase(IntEnum):
@@ -37,11 +43,12 @@ class Action(Base):
 
 class Option(Base):
     """Option for a given level"""
+    id: int
     description: str
     action: Action
 
-    translation: Dict[TransType, str] = dict()
-    audio: Dict[TransType, str] = dict()
+    translation: Dict[str, str] = dict()
+    audio: Dict[str, str] = dict()
 
 
 class Level(Base):
@@ -55,5 +62,5 @@ class Level(Base):
     probability: float = 1.0
     phase: Union[Phase, List[Phase]]
 
-    translation: Dict[TransType, str] = dict()
-    audio: Dict[TransType, str] = dict()
+    translation: Dict[str, str] = dict()
+    audio: Dict[str, str] = dict()
