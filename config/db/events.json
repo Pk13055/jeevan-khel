@@ -4,6 +4,21 @@
         "description": "You need to help pay for your younger brother's school fees. How much do you pay? (Other family members will pay the rest)",
         "options": [
             {
+                "description": "Pay ₹2000",
+                "action": {
+                    "expenditure": 0.0,
+                    "debt": 0.0,
+                    "current": -2000.0,
+                    "events": []
+                },
+                "audio": {
+                    "HI": "event_1_option_1.mp3"
+                },
+                "translation": {
+                    "HI": "₹2000 भरें"
+                }
+            },
+            {
                 "description": "Pay ₹5000",
                 "action": {
                     "expenditure": 0.0,
@@ -12,25 +27,10 @@
                     "events": []
                 },
                 "audio": {
-                    "HI": "event_1_option_1.mp3"
-                },
-                "translation": {
-                    "HI": "₹5000 भरें"
-                }
-            },
-            {
-                "description": "Pay ₹10000",
-                "action": {
-                    "expenditure": 0.0,
-                    "debt": 0.0,
-                    "current": -10000.0,
-                    "events": []
-                },
-                "audio": {
                     "HI": "event_1_option_2.mp3"
                 },
                 "translation": {
-                    "HI": "₹10000 भरें"
+                    "HI": "₹5000 भरें"
                 }
             }
         ],
@@ -142,18 +142,18 @@
         "description": "Your family members try to convince you to get married. What do you do?",
         "options": [
             {
-                "description": "Agree to get married (You have to spend Rs 2 lakh on your part)",
+                "description": "Agree to get married (You have to spend Rs 60000 on your part, family members will take care of the rest)",
                 "action": {
                     "expenditure": 0.0,
                     "debt": 0.0,
-                    "current": -200000.0,
+                    "current": -60000.0,
                     "events": []
                 },
                 "audio": {
                     "HI":"event_4_option_1.mp3"
                 },
                 "translation": {
-                    "HI": "शादी करने के लिए सहमत (आपको अपनी ओर से 2 लाख रुपये खर्च करने होंगे)"
+                    "HI": "शादी करने के लिए सहमत (आपको अपनी ओर से 60000 रुपये खर्च करने होंगे, परिवार के अन्य सदस्य बाकी का खर्च संभालेंगे)"
                 }
             },
             {
@@ -188,33 +188,33 @@
         "description": "You get married. How much do you spend on the wedding from your end?",
         "options": [
             {
-                "description": "Spend Rs 2 lakh",
+                "description": "Spend Rs 1 lakh, family members will take care of the rest",
                 "action": {
                     "expenditure": 0.0,
                     "debt": 0.0,
-                    "current": -200000.0,
+                    "current": -100000.0,
                     "events": []
                 },
                 "audio": {
                     "HI":"event_5_option_1.mp3"
                 },
                 "translation": {
-                    "HI": "2 लाख रुपए खर्च करें |"
+                    "HI": "1 लाख रुपए खर्च करें, परिवार के अन्य सदस्य बाकी का खर्च संभालेंगे|"
                 }
             },
             {
-                "description": "Spend Rs 4 lakh",
+                "description": "Spend Rs 1.5 lakh, family members will take care of the rest",
                 "action": {
                     "expenditure": 0.0,
                     "debt": 0.0,
-                    "current": -400000.0,
+                    "current": -150000.0,
                     "events": []
                 },
                 "audio": {
                     "HI":"event_5_option_2.mp3"
                 },
                 "translation": {
-                    "HI": "4 लाख रुपए खर्च करें |"
+                    "HI": "1.5 लाख रुपए खर्च करें, परिवार के अन्य सदस्य बाकी का खर्च संभालेंगे|"
                 }
             }
         ],
@@ -371,18 +371,18 @@
                 }
             },
             {
-                "description": "Visit a doctor (TODO: ADD COST)",
+                "description": "Visit a doctor (will cost ₹700)",
                 "action": {
                     "expenditure": 0.0,
                     "debt": 0.0,
-                    "current": 0.0,
+                    "current": -700.0,
                     "events": []
                 },
                 "audio": {
                     "HI":"event_9_option_2.mp3"
                 },
                 "translation": {
-                    "HI": "डॉक्टर के पास जाएं|"
+                    "HI": "डॉक्टर के पास जाएं| (₹700 खर्च होंगे)"
                 }
             }
         ],
@@ -448,33 +448,33 @@
         "description": "Your brother is getting married. How much do you contribute towards the wedding?",
         "options": [
             {
-                "description": "₹250000",
+                "description": "₹200000",
                 "action": {
                     "expenditure": 0.0,
                     "debt": 0.0,
-                    "current": -250000.0,
+                    "current": -200000.0,
                     "events": []
                 },
                 "audio": {
                     "HI":"event_11_option_1.mp3"
                 },
                 "translation": {
-                    "HI": "₹250000"
+                    "HI": "₹200000"
                 }
             },
             {
-                "description": "₹500000",
+                "description": "₹300000",
                 "action": {
                     "expenditure": 0.0,
                     "debt": 0.0,
-                    "current": -500000.0,
+                    "current": -300000.0,
                     "events": []
                 },
                 "audio": {
                     "HI":"event_11_option_2.mp3"
                 },
                 "translation": {
-                    "HI": "₹500000"
+                    "HI": "₹300000"
                 }
             }
         ],
@@ -583,7 +583,7 @@
     },
     {
         "id": 14,
-        "description": "You have a severe back injury and have to be hospitalized.",
+        "description": "Your back gets injured badly and you have to be hospitalized.",
         "options": [],
         "probability": 0.4,
         "phase": 4,
@@ -594,7 +594,7 @@
         "audio": {
             "HI": "event_14.mp3"
         },
-        "title": "You have a severe back injury and have to be hospitalized."
+        "title": "Your back gets injured badly and you have to be hospitalized."
     },
     {
         "id": 15,
@@ -659,34 +659,18 @@
     },
     {
         "id": 17,
-        "description": "You need a ??? surgery.",
-        "options": [
-            {
-                "description": "amount deducted depends on whether insurance was taken or not",
-                "action": {
-                    "expenditure": 0.0,
-                    "debt": 0.0,
-                    "current": 0.0,
-                    "events": []
-                },
-                "audio": {
-                    "HI":""
-                },
-                "translation": {
-                    "HI": ""
-                }
-            }
-        ],
-        "probability": 0.2,
+        "description": "You fall ill with dengue and have to be hospitalized.",
+        "options": [],
+        "probability": 0.7,
         "phase": 4,
         "translation": {
-            "HI": "..."
+            "HI": "आपको डेंगू हो जाता है और अस्पताल में एडमिट होना पड़ेगा |"
         },
         "image": "event_17.png",
         "audio": {
             "HI": "event_17.mp3"
         },
-        "title": "You need a ??? surgery."
+        "title": "You fall ill with dengue and have to be hospitalized."
     },
     {
         "id": 18,
@@ -971,9 +955,9 @@
         "description": "Do you want to buy a health insurance policy?",
         "options": [
             {
-                "description": "Yes, buy a policy whose annual premium is ₹, and the cover amount is ₹",
+                "description": "Yes, buy an individual plan whose annual premium is ₹5000, and the cover amount is ₹2 lakh",
                 "action": {
-                    "expenditure": 0.0,
+                    "expenditure": -416.66,
                     "debt": 0.0,
                     "current": 0.0,
                     "events": []
@@ -982,13 +966,13 @@
                     "HI":"event_25_option_1.mp3"
                 },
                 "translation": {
-                    "HI": ""
+                    "HI": "हां, एक व्यक्तिगत योजना खरीदें, जिसमे हर साल ₹5000 का प्रीमियम भरना है, और कवर राशि ₹2 लाख है|"
                 }
             },
             {
-                "description": "Yes, buy a policy whose annual premium is ₹, and the cover amount is ₹",
+                "description": "Yes, buy a family plan whose annual premium is ₹6000, the cover amount is ₹3 lakh, and it includes your spouse and children",
                 "action": {
-                    "expenditure": 0.0,
+                    "expenditure": -500.0,
                     "debt": 0.0,
                     "current": 0.0,
                     "events": []
@@ -997,13 +981,13 @@
                     "HI":"event_25_option_2.mp3"
                 },
                 "translation": {
-                    "HI": ""
+                    "HI": "हां, एक पारिवारिक योजना खरीदें, जिसमे हर साल ₹6000 का प्रीमियम भरना है, कवर राशि ₹3 लाख है, और इसमें आपके पति या पत्नी और बच्चे शामिल हैं|"
                 }
             },
             {
-                "description": "Yes, buy a policy whose annual premium is ₹, and the cover amount is ₹",
+                "description": "Yes, buy a family plan whose annual premium is ₹10000, the cover amount is ₹3 lakh, and it includes your parents, spouse and children",
                 "action": {
-                    "expenditure": 0.0,
+                    "expenditure": -833.33,
                     "debt": 0.0,
                     "current": 0.0,
                     "events": []
@@ -1012,7 +996,7 @@
                     "HI":"event_25_option_3.mp3"
                 },
                 "translation": {
-                    "HI": ""
+                    "HI": "हां, एक पारिवारिक योजना खरीदें, जिसमे हर साल ₹10000 का प्रीमियम भरना है, कवर राशि ₹3 लाख है, और इसमें आपके माता-पिता, पति या पत्नी और बच्चे शामिल हैं|"
                 }
             },
             {
@@ -1027,14 +1011,14 @@
                     "HI":"event_25_option_4.mp3"
                 },
                 "translation": {
-                    "HI": ""
+                    "HI": "नहीं, स्वास्थ्य बीमा पॉलिसी नहीं खरीदना चाहते|"
                 }
             }
         ],
         "probability": 1,
-        "phase": 1,
+        "phase": 2,
         "translation": {
-            "HI": ""
+            "HI": "क्या आप स्वास्थ्य बीमा पॉलिसी खरीदना चाहेंगे?"
         },
         "image": "event_25.png",
         "audio": {
@@ -1318,43 +1302,12 @@
     },
     {
         "id": 30,
-        "description": "You have a bad ????. What do you do?",
-        "options": [
-            {
-                "description": "Visit ....",
-                "action": {
-                    "expenditure": 0.0,
-                    "debt": 0.0,
-                    "current": 0.0,
-                    "events": []
-                },
-                "audio": {
-                    "HI":"event_30_option_1.mp3"
-                },
-                "translation": {
-                    "HI": ""
-                }
-            },
-            {
-                "description": "Take a painkiller",
-                "action": {
-                    "expenditure": 0.0,
-                    "debt": 0.0,
-                    "current": 0.0,
-                    "events": []
-                },
-                "audio": {
-                    "HI":"event_30_option_1.mp3"
-                },
-                "translation": {
-                    "HI": ""
-                }
-            }
-        ],
-        "probability": 0.65,
-        "phase": 1,
+        "description": "Your uncle sold some old family-owned land and you get a share of the money acquired",
+        "options": [],
+        "probability": 0.8,
+        "phase": 2,
         "translation": {
-            "HI": ""
+            "HI": "आपके चाचा ने एक पुरानी जमीन बेची और आपको पैसों का एक हिस्सा मिलता है|"
         },
         "image": "event_30.png",
         "audio": {
