@@ -62,7 +62,8 @@
                                     "id": 3,
                                     "probability": 1.0
                                 }
-                            ]
+                            ],
+                    "salary": 8000.0
                 },
                 "audio": {
                     "HI": "event_2_option_1.mp3"
