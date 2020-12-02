@@ -39,54 +39,6 @@ async def get_game_state(gender: Gender, code: uuid.UUID = None,
 
 
 
-# @router.post("/update", response_model=StateInResponse)
-# # async def change_state(game_state: State, level_id: ObjectID, option_id: int, db: AsyncIOMotorClient = Depends(get_database)) -> StateInResponse:
-# async def change_state(game_state: UserAction, db: AsyncIOMotorClient = Depends(get_database)) -> StateInResponse:
-    
-    # if game_state is not None:
-
-    #     all_states = db.core.states.find()
-
-    #     use_this_state = None
-
-    #     for some_state in all_states:
-    #         if game_state.code == some_state.code:
-    #             use_this_state = some_state
-
-    #     game_levels = game_state.data.remaining
-
-    #     current_level = None
-
-    #     for lvl in game_levels:
-    #         if lvl.id == level_id:
-    #             current_level = lvl
-
-    #     current_options = current_level.options
-
-    #     option = None
-
-    #     # update finances
-
-    #     for option in current_options:
-    #         if option.id == option_id:
-    #             game_state.data.finances.current += option.action.current
-    #             game_state.data.finances.expenditure += option.action.expenditure
-
-    #     # update other affected events
-
-    #     # move from remaining to completed
-
-    #     # Update state in database
-
-    #     db.core.states.update_one(
-    #         {
-    #             "code": game_state.data.code,
-    #             "$set" : {"finances.current" : game_state.data.finances.current}
-    #         }
-    #     )
-
-    #     return StateInResponse(data=game_state.data)
-        
 
 @router.post("/update", response_model=StateInResponse)
 async def change_state(game_state: UserAction, db: AsyncIOMotorClient = Depends(get_database)):
@@ -113,24 +65,77 @@ async def change_state(game_state: UserAction, db: AsyncIOMotorClient = Depends(
 
         if _level:
 
+            current_options = _level.options
+
             # move from remaining to completed
 
             state.remaining.remove(_level)
             state.completed.append(_level)
+
+
+            """
+            TODO: Test the check for insurance. For injury/illness events, check if insurance was taken, don't change current in that case
+
+            TODO: If we assume that one year has passed after every level/event -- Most of the events do make sense!
+
+            In this case, current balance updation will take place like this:
+            finances.current += (action.current + 12 * finances.salary - 12 * expenditure)
+
+            TODO: Increase salary and expenditure WHEN THE PHASE CHANGES -- Check the phase of the level/event!!
+
+            TODO: Check if this makes the game too easy -- if so, reduce salary (without any time progression, things like premium and expenditure won't make sense --- and it will be ridiculously difficult)
+
+            """
 
             # update finances
 
             current_options = _level.options
 
             for option in current_options:
+                
                 if option.id == game_state.option_id:
+
+                    # TODO: Check if insurance was taken for injury/illness events, in that case, don't modify current
+
                     state.finances.current += option.action.current
                     state.finances.expenditure += option.action.expenditure
                     state.finances.salary += option.action.salary
 
-            # update other affected events
+                    # update other affected events
+
+                    affectedEvents = option.action.events
+
+                    if len(affectedEvents) > 0:
+                        for event in affectedEvents:
+                            for i in range(len(state.remaining)):
+                                if state.remaining[i].id == event.id:
+                                    state.remaining[i].probability += event.probability
+
+                    # Checking for insurance
+
+                    # NOTE: Premium amount has already been added to expenditure
+
+                    if (game_state.level_id in [23]) and ("Yes" in option.description):
+                        state.insurance.accident = True
+                    
+                    if (game_state.level_id in [24, 26]) and ("Yes" in option.description):
+                        state.insurance.life = True
+                    
+                    if (game_state.level_id in [25]) and ("Yes" in option.description) and ("individual" in option.description):
+                        state.insurance.individualHealth = True
+                    elif (game_state.level_id in [25]) and ("Yes" in option.description) and ("family" in option.description):
+                        state.insurance.familyHealth = True
+                    
+                    if (game_state.level_id in [27, 28, 29]) and ("Yes" in option.description):
+                        state.insurance.pensionFund = True
 
             # Update state in database
+
+            for i in range(len(state.remaining)):
+                state.remaining[i] = state.remaining[i].dict()
+
+            for i in range(len(state.completed)):
+                state.completed[i] = state.completed[i].dict()
 
             db.core.states.update_one(
                 { "code": game_state.code },
@@ -140,14 +145,16 @@ async def change_state(game_state: UserAction, db: AsyncIOMotorClient = Depends(
                                 "finances.expenditure" : state.finances.expenditure,
                                 "finances.salary" : state.finances.salary,
                                 "completed" : state.completed,
-                                "remaining" : state.remaining
+                                "remaining" : state.remaining,
+                                "insurance.accident" : state.insurance.accident,
+                                "insurance.life" : state.insurance.life,
+                                "insurance.individualHealth" : state.insurance.individualHealth,
+                                "insurance.familyHealth" : state.insurance.familyHealth,
+                                "insurance.pensionFund" : state.insurance.pensionFund
                             }
                 }
             )
 
             return StateInResponse(data=state)
-
-
-    return game_state
 
 

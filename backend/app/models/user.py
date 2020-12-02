@@ -30,6 +30,7 @@ class Insurance(Base):
     individualHealth: bool = False
     familyHealth: bool = False
     life: bool = False
+    accident: bool = False
     pensionFund: bool = False
 
 

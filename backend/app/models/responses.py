@@ -20,3 +20,4 @@ class UserAction(Base):
     code: str
     level_id: int
     option_id: int
+    # previous_phase: int       TODO: Ask Pratik
