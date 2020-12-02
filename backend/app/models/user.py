@@ -1,12 +1,17 @@
 # from app.models.levels import Phase
-from enum import IntEnum
-from typing import List, Union, Dict
+from enum import IntEnum, Enum
+from typing import List, Union, Dict, Optional
 import uuid
 
 from pydantic import Field, validator
 
 from .base import Base, ObjectID
 from .levels import Level, Phase
+
+
+class Gender(str, Enum):
+    male = 'male'
+    female = 'female'
 
 
 class Finance(Base):
@@ -24,14 +29,15 @@ class Insurance(Base):
     house: bool = False
     individualHealth: bool = False
     familyHealth: bool = False
-    # car: bool = False         # Not for our target audience 
     life: bool = False
     pensionFund: bool = False
 
 
 class State(Base):
     """State to save the user progress"""
+    token: Optional[str]
     code: uuid.UUID
+    gender: str
     insurance: Insurance = Insurance()
     finances: Finance = Finance()
     completed: List[Level] = list()

@@ -1,35 +1,39 @@
 import uuid
 
 from fastapi import APIRouter, Depends, Security
+from jose import jwt
 from motor.motor_asyncio import AsyncIOMotorClient
 
+from config import SECRET_KEY
 from ..utils.mongodb import get_database
 from ..models.responses import StateInResponse, UserAction
 from ..models.levels import Level
-from ..models.user import State
+from ..models.user import Gender, State
 from ..models.base import ObjectID
 
 router = APIRouter()
 
 
 @router.get("/new", response_model=StateInResponse)
-async def get_game_state(resume: uuid.UUID = None, db: AsyncIOMotorClient = Depends(get_database)) -> StateInResponse:
+async def get_game_state(gender: Gender, code: uuid.UUID = None,
+                        db: AsyncIOMotorClient = Depends(get_database)) -> StateInResponse:
     """Generate a new meeting code
 
         - If code is user given, then return code AND state of game, if it exists
         - If code does not exist, then start new game with a new code
     """
-
-    code = resume if resume is not None else uuid.uuid4()
+    code = code if code is not None else uuid.uuid4()
     _state = await db.core.states.find_one({"code": code})
     if _state is None:
         # define new game variable
-        state = State(code=code)
+        state = State(code=code, gender=gender.value)
         levels = db.core.levels.find()
         state.remaining = [Level(**level) async for level in levels]
         db.core.states.insert_one(state.dict())
     else:
         state = State(**_state)
+    state.token = jwt.encode({'code': str(state.code)}, str(
+        SECRET_KEY), algorithm="HS256")
     return StateInResponse(data=state)
 
 
