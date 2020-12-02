@@ -6,18 +6,6 @@ from pydantic import Field
 from .base import Base, ObjectID
 
 
-# class TransType(Enum):
-#     EN = 'EN'
-#     HI = 'HI'
-#     MH = 'MH'
-
-#     def __repr__(self):
-#         return str(self.value)
-
-#     def __str__(self):
-#         return str(self.value)
-
-
 class Phase(IntEnum):
     """Phases of the gameplay"""
     phase1 = 1

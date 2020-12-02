@@ -17,6 +17,7 @@
                 </v-icon>
             </v-btn>
         </v-app-bar>
+        <Login v-if="!isAuthenticated" />
         <Finance :open="open" />
         <v-main>
             <router-view></router-view>
@@ -27,14 +28,23 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 import Finance from './components/Finance';
 import Footer from './components/Footer';
+import Login from './components/Login';
+
 export default {
     name: 'App',
-    components: { Finance, Footer },
+    components: { Finance, Footer, Login },
     data: () => ({
-        open: true,
-        code: 'e68a8b3e-e41a-45a3-8f19-bbb804d7a55a',
+        open: false,
     }),
+    computed: {
+        ...mapState({
+            isAuthenticated: state => state.isAuthenticated,
+            code: state => state.code,
+        }),
+    },
 };
 </script>

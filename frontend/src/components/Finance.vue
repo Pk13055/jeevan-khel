@@ -29,7 +29,7 @@
                         This amount is deducted from your balance every month
                     </v-list-item-subtitle>
                     <v-chip outlined color="warning" class="text-subtitle">
-                        {{ monthly }}
+                        {{ expenditure }}
                     </v-chip>
                 </v-list-item-content>
             </v-list-item>
@@ -41,13 +41,15 @@
                     </v-list-item-subtitle>
                     <v-list-item-subtitle>
                         This amount experiences a monthly interest rate (MPY
-                        <strong class="text-subtitle">{{ rates.debt }}%</strong
+                        <strong class="text-subtitle"
+                            >{{ rates.interest }}%</strong
                         >)
                     </v-list-item-subtitle>
                     <v-chip outlined color="error" class="text-subtitle">
                         {{ debt }}
                     </v-chip>
                 </v-list-item-content>
+                <!-- TODO add salary -->
             </v-list-item>
         </v-list>
         <v-divider></v-divider>
@@ -78,7 +80,7 @@
                     <v-list-item-title>Take Loan</v-list-item-title>
                     <v-list-item-subtitle
                         >Apply for loan (APY
-                        <strong class="text-subtitle">{{ rates.loan }}%</strong
+                        <strong class="text-subtitle">{{ rates.bank }}%</strong
                         >)</v-list-item-subtitle
                     >
                     <v-list-item-subtitle>
@@ -100,6 +102,7 @@
                     ></v-text-field>
                 </v-list-item-content>
             </v-list-item>
+            <!-- TODO add insurance box -->
         </v-list>
         <template v-slot:append>
             <div class="pa-2">
@@ -111,17 +114,22 @@
     </v-navigation-drawer>
 </template>
 <script>
+import { mapState } from 'vuex';
 export default {
     name: 'Finance',
     props: ['open'],
     data: () => ({
-        current: 20000,
-        debt: -5000,
-        monthly: 7400,
-        rates: {
-            debt: 4.5,
-            loan: 6,
-        },
+        //
     }),
+    computed: {
+        ...mapState('finance', {
+            current: state => state.costs.current,
+            debt: state => state.costs.debt,
+            expenditure: state => state.costs.expenditure,
+            salary: state => state.costs.salary,
+            rates: state => state.rates,
+            insurance: state => state.insurance,
+        }),
+    },
 };
 </script>
