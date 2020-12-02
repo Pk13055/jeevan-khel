@@ -84,31 +84,64 @@ async def get_game_state(resume: uuid.UUID = None, db: AsyncIOMotorClient = Depe
     #     return StateInResponse(data=game_state.data)
         
 
-@router.post("/update")
-async def testFunction(game_state: UserAction, db: AsyncIOMotorClient = Depends(get_database)):
+@router.post("/update", response_model=StateInResponse)
+async def change_state(game_state: UserAction, db: AsyncIOMotorClient = Depends(get_database)):
     
-    _level = await db.core.levels.find_one({
-        "id": game_state.level_id,
-        "options.id": game_state.option_id
-    })
+    # _level = await db.core.levels.find_one({          # The level info can get modified in state.remaining
+    #     "id": game_state.level_id,                    # So, taking level info from state instead
+    #     "options.id": game_state.option_id
+    # })
 
-    if _level:
-
-        level = Level(**_level)
-
-        _state = await db.core.states.find_one({
+    _state = await db.core.states.find_one({
             "code": game_state.code
         })
 
-        if _state:
-            state = State(**_state)
+    if _state:
 
-            # print(state)
+        state = State(**_state)
 
-            return {
-                "contains":level in state.remaining
-            }
-    
+        _level = None
+
+        for lvl in state.remaining:
+
+            if lvl.id == game_state.level_id:
+                _level = lvl
+
+        if _level:
+
+            # move from remaining to completed
+
+            state.remaining.remove(_level)
+            state.completed.append(_level)
+
+            # update finances
+
+            current_options = _level.options
+
+            for option in current_options:
+                if option.id == game_state.option_id:
+                    state.finances.current += option.action.current
+                    state.finances.expenditure += option.action.expenditure
+                    state.finances.salary += option.action.salary
+
+            # update other affected events
+
+            # Update state in database
+
+            db.core.states.update_one(
+                { "code": game_state.code },
+                { 
+                    "$set" : {
+                                "finances.current" : state.finances.current,
+                                "finances.expenditure" : state.finances.expenditure,
+                                "finances.salary" : state.finances.salary,
+                                "completed" : state.completed,
+                                "remaining" : state.remaining
+                            }
+                }
+            )
+
+            return StateInResponse(data=state)
 
 
     return game_state
