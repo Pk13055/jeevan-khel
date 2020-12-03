@@ -74,16 +74,11 @@ async def change_state(game_state: UserAction, db: AsyncIOMotorClient = Depends(
 
 
             """
-            TODO: Test the check for insurance. For injury/illness events, check if insurance was taken, don't change current in that case
+            TODO: An API route for updating finances according to time elapsed
 
-            TODO: If we assume that one year has passed after every level/event -- Most of the events do make sense!
+            TODO: Increase salary and expenditure WHEN THE PHASE CHANGES -- Check the phase of the level/event, compare with previous phase?
 
-            In this case, current balance updation will take place like this:
-            finances.current += (action.current + 12 * finances.salary - 12 * expenditure)
-
-            TODO: Increase salary and expenditure WHEN THE PHASE CHANGES -- Check the phase of the level/event!!
-
-            TODO: Check if this makes the game too easy -- if so, reduce salary (without any time progression, things like premium and expenditure won't make sense --- and it will be ridiculously difficult)
+            TODO: Check if the game is too easy -- if so, reduce salary
 
             """
 
@@ -95,11 +90,24 @@ async def change_state(game_state: UserAction, db: AsyncIOMotorClient = Depends(
                 
                 if option.id == game_state.option_id:
 
-                    # TODO: Check if insurance was taken for injury/illness events, in that case, don't modify current
+                    # Checking if insurance was taken for injury/illness events, in that case, don't modify current
+                    
+                    if (game_state.level_id in [14, 17]) and state.insurance.individualHealth == True:
+                        pass
+                        # Finances not affected
 
-                    state.finances.current += option.action.current
-                    state.finances.expenditure += option.action.expenditure
-                    state.finances.salary += option.action.salary
+                    elif (game_state.level_id in [15]) and state.insurance.parentsHealth == True:
+                        pass
+                        # Finances not affected
+                    
+                    elif (game_state.level_id in [14]) and state.insurance.accident == True:
+                        pass
+                        # Finances not affected
+
+                    else:
+                        state.finances.current += option.action.current
+                        state.finances.expenditure += option.action.expenditure
+                        state.finances.salary += option.action.salary
 
                     # update other affected events
 
@@ -123,6 +131,11 @@ async def change_state(game_state: UserAction, db: AsyncIOMotorClient = Depends(
                     
                     if (game_state.level_id in [25]) and ("Yes" in option.description) and ("individual" in option.description):
                         state.insurance.individualHealth = True
+
+                    elif (game_state.level_id in [25]) and ("Yes" in option.description) and ("parents" in option.description):
+                        state.insurance.parentsHealth = True
+                        state.insurance.familyHealth = True
+
                     elif (game_state.level_id in [25]) and ("Yes" in option.description) and ("family" in option.description):
                         state.insurance.familyHealth = True
                     
