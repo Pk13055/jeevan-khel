@@ -15,4 +15,7 @@ export default {
         state.token = null;
         state.isAuthenticated = false;
     },
+    SET_LANGUAGE: (state, lang) => {
+        state.language = lang;
+    }
 };

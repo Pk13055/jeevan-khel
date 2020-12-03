@@ -14,7 +14,8 @@ export default new Vuex.Store({
         code: null,
         token: null,
         isAuthenticated: false,
-        gender: 'female'
+        gender: 'female',
+        language: 'EN'
 
     },
     mutations: rootMutations,
