@@ -15,6 +15,7 @@ export default {
                 commit("finance/ADD_INSURANCE", state.insurance);
                 commit("levels/LOAD_LEVELS", { remaining: state.remaining, completed: state.completed });
                 commit("levels/LOAD_CURRENT", state.current);
+                dispatch("levels/getRandomLevel");
             })
             .catch(err => console.error(err));
     },
@@ -22,5 +23,8 @@ export default {
         removeAuthToken()
         commit('REMOVE_TOKEN')
         window.location.replace('/login')
+    },
+    async changeLang({ commit }, lang) {
+        commit("SET_LANGUAGE", lang);
     }
 }
