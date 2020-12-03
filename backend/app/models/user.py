@@ -44,6 +44,4 @@ class State(Base):
     completed: List[Level] = list()
     remaining: List[Level] = list()
     # current: Phase = Phase.phase1
-    # current: Level =    # TRY
-
-    # how to play lvl
+    currentLevel: Level

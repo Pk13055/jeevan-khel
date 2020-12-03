@@ -45,12 +45,12 @@ class Level(Base):
     # id: ObjectID = Field(None, alias="_id")
     # int_id: int = Field(None, alias="id")
     id: int
-    title: str
+    title: Optional[str]
     description: Dict[str, str] = dict()
-    image: str
+    image: Optional[str]
 
     options: List[Option] = list()
-    probability: float = 1.0
+    probability: float = 0.0
     phase: Union[Phase, List[Phase]]
 
     audio: Dict[str, str] = dict()

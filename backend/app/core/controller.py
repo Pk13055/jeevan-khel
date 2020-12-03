@@ -1,4 +1,5 @@
 import uuid
+import random
 
 from fastapi import APIRouter, Depends, Security
 from jose import jwt
@@ -29,11 +30,21 @@ async def get_game_state(gender: Gender, code: uuid.UUID = None,
 
     if _state is None:
         # define new game variable
-        state = State(code=code, gender=gender.value)
+
         levels = db.core.levels.find()
-        state.remaining = [Level(**level) async for level in levels]
-        # state.currentLvl
+
+        firstLevel = None
+
+        async for level in levels:
+            if level["id"] == 0:
+                firstLevel = Level(**level)
+
+        state = State(code=code, gender=gender.value, currentLevel=firstLevel)
+        
+        state.remaining = [Level(**level) async for level in levels]        # TODO: This is not working, fix
+        
         db.core.states.insert_one(state.dict())
+
     else:
         state = State(**_state)
 
@@ -82,7 +93,7 @@ async def change_state(game_state: UserAction, db: AsyncIOMotorClient = Depends(
             """
             TODO: An API route for updating finances according to time elapsed
 
-            TODO: Increase salary and expenditure WHEN THE PHASE CHANGES -- Check the phase of the level/event, compare with previous phase?
+            TODO: Increase salary and expenditure WHEN THE PHASE CHANGES
 
             TODO: Check if the game is too easy -- if so, reduce salary
 
@@ -148,33 +159,56 @@ async def change_state(game_state: UserAction, db: AsyncIOMotorClient = Depends(
                     if (game_state.level_id in [27, 28, 29]) and ("Yes" in option.description):
                         state.insurance.pensionFund = True
 
-            # Update state in database
+        # Determine the next event to be shown
 
-            for i in range(len(state.remaining)):
-                state.remaining[i] = state.remaining[i].dict()
+        remEventsCurrentPhase = []
 
-            for i in range(len(state.completed)):
-                state.completed[i] = state.completed[i].dict()
+        currentPhase = state.currentLevel.phase.value
 
-            db.core.states.update_one(
-                { "code": uuid.UUID(game_code["code"]) },
-                { 
-                    "$set" : {
-                                "finances.current" : state.finances.current,
-                                "finances.expenditure" : state.finances.expenditure,
-                                "finances.salary" : state.finances.salary,
-                                "completed" : state.completed,
-                                "remaining" : state.remaining,
-                                "insurance.accident" : state.insurance.accident,
-                                "insurance.life" : state.insurance.life,
-                                "insurance.individualHealth" : state.insurance.individualHealth,
-                                "insurance.familyHealth" : state.insurance.familyHealth,
-                                "insurance.pensionFund" : state.insurance.pensionFund
-                            }
-                }
-            )
+        for lvl in state.remaining:
+            if lvl.phase.value == currentPhase:
+                remEventsCurrentPhase.append(lvl)
 
-            return StateInResponse(data=state)
+        if len(remEventsCurrentPhase) == 0:
+
+            # Change phase
+
+            currentPhase += 1
+
+            for lvl in state.remaining:
+                if lvl.phase.value == currentPhase:
+                    remEventsCurrentPhase.append(lvl)
+
+        state.currentLevel = random.choices(remEventsCurrentPhase, [lvl.probability for lvl in remEventsCurrentPhase])[0]
+
+        # Update state in database
+
+        for i in range(len(state.remaining)):
+            state.remaining[i] = state.remaining[i].dict()
+
+        for i in range(len(state.completed)):
+            state.completed[i] = state.completed[i].dict()
+
+        db.core.states.update_one(
+            { "code": uuid.UUID(game_code["code"]) },
+            { 
+                "$set" : {
+                            "finances.current" : state.finances.current,
+                            "finances.expenditure" : state.finances.expenditure,
+                            "finances.salary" : state.finances.salary,
+                            "completed" : state.completed,
+                            "remaining" : state.remaining,
+                            "insurance.accident" : state.insurance.accident,
+                            "insurance.life" : state.insurance.life,
+                            "insurance.individualHealth" : state.insurance.individualHealth,
+                            "insurance.familyHealth" : state.insurance.familyHealth,
+                            "insurance.pensionFund" : state.insurance.pensionFund,
+                            "currentLevel" : state.currentLevel
+                        }
+            }
+        )
+
+        return StateInResponse(data=state)
 
 
 
