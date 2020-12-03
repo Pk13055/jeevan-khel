@@ -17,7 +17,7 @@ class StateInResponse(ResponseBase):
 
 class UserAction(Base):
     # code: uuid.UUID
-    code: str
+    # code: str
     level_id: int
     option_id: int
     # previous_phase: int       TODO: Ask Pratik

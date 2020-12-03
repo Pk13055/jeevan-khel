@@ -6,6 +6,8 @@ from motor.motor_asyncio import AsyncIOMotorClient
 
 from config import SECRET_KEY
 from ..utils.mongodb import get_database
+from ..utils.token import verify_token
+
 from ..models.responses import StateInResponse, UserAction
 from ..models.levels import Level
 from ..models.user import Gender, State
@@ -24,24 +26,28 @@ async def get_game_state(gender: Gender, code: uuid.UUID = None,
     """
     code = code if code is not None else uuid.uuid4()
     _state = await db.core.states.find_one({"code": code})
+
     if _state is None:
         # define new game variable
         state = State(code=code, gender=gender.value)
         levels = db.core.levels.find()
         state.remaining = [Level(**level) async for level in levels]
+        # state.currentLvl
         db.core.states.insert_one(state.dict())
     else:
         state = State(**_state)
+
     state.token = jwt.encode({'code': str(state.code)}, str(
         SECRET_KEY), algorithm="HS256")
+
     return StateInResponse(data=state)
 
 
 
 
 
-@router.post("/update", response_model=StateInResponse)
-async def change_state(game_state: UserAction, db: AsyncIOMotorClient = Depends(get_database)):
+@router.post("/update", response_model=StateInResponse, dependencies=[Depends(verify_token)])
+async def change_state(game_state: UserAction, db: AsyncIOMotorClient = Depends(get_database), game_code: str = Depends(verify_token)) -> StateInResponse:
     
     # _level = await db.core.levels.find_one({          # The level info can get modified in state.remaining
     #     "id": game_state.level_id,                    # So, taking level info from state instead
@@ -49,7 +55,7 @@ async def change_state(game_state: UserAction, db: AsyncIOMotorClient = Depends(
     # })
 
     _state = await db.core.states.find_one({
-            "code": game_state.code
+            "code": uuid.UUID(game_code["code"])
         })
 
     if _state:
@@ -151,7 +157,7 @@ async def change_state(game_state: UserAction, db: AsyncIOMotorClient = Depends(
                 state.completed[i] = state.completed[i].dict()
 
             db.core.states.update_one(
-                { "code": game_state.code },
+                { "code": uuid.UUID(game_code["code"]) },
                 { 
                     "$set" : {
                                 "finances.current" : state.finances.current,
@@ -171,3 +177,10 @@ async def change_state(game_state: UserAction, db: AsyncIOMotorClient = Depends(
             return StateInResponse(data=state)
 
 
+
+
+@router.post("/finances")
+async def update_finances(db: AsyncIOMotorClient = Depends(get_database), game_code: str = Depends(verify_token)) -> StateInResponse:
+    pass
+    # finances dictionary
+    # since value

@@ -1,4 +1,3 @@
-# from app.models.levels import Phase
 from enum import IntEnum, Enum
 from typing import List, Union, Dict, Optional
 import uuid
@@ -44,4 +43,7 @@ class State(Base):
     finances: Finance = Finance()
     completed: List[Level] = list()
     remaining: List[Level] = list()
-    current: Phase = Phase.phase1
+    # current: Phase = Phase.phase1
+    # current: Level =    # TRY
+
+    # how to play lvl
