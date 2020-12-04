@@ -70,7 +70,9 @@ async def change_state(game_state: UserAction, code: Dict[str, uuid.UUID] = Depe
     for option in current.options:
         if option.id == game_state.option_id:
             # check if insurance present
-            if (game_state.level_id in [14, 17]) and state.insurance.individualHealth:
+            if (((game_state.level_id in [14, 17]) and state.insurance.individualHealth) or 
+               ((game_state.level_id in [14, 17]) and state.insurance.familyHealth) or 
+               ((game_state.level_id in [14, 17]) and state.insurance.parentsHealth)):
                 pass
             elif (game_state.level_id in [15]) and state.insurance.parentsHealth:
                 pass
@@ -83,7 +85,7 @@ async def change_state(game_state: UserAction, code: Dict[str, uuid.UUID] = Depe
                 state.finances.salary += option.action.salary
 
                 if state.finances.current < 0:
-                    state.finances.debt = abs(state.finances.current)
+                    state.finances.debt += abs(state.finances.current)
                     state.finances.current = 0
 
 
