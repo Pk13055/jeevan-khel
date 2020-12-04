@@ -20,3 +20,6 @@ class UserAction(Base):
     # code: str
     level_id: int
     option_id: int
+
+class FinanceUpdate(Base):
+    finances : dict

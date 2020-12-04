@@ -10,9 +10,9 @@ from config import SECRET_KEY
 from ..utils.mongodb import get_database
 from ..utils.token import verify_token
 
-from ..models.responses import StateInResponse, UserAction
+from ..models.responses import StateInResponse, UserAction, FinanceUpdate
 from ..models.levels import Level
-from ..models.user import Gender, State
+from ..models.user import Gender, State, Finance
 from ..models.base import ObjectID
 
 router = APIRouter()
@@ -82,6 +82,11 @@ async def change_state(game_state: UserAction, code: Dict[str, uuid.UUID] = Depe
                 state.finances.expenditure += option.action.expenditure
                 state.finances.salary += option.action.salary
 
+                if state.finances.current < 0:
+                    state.finances.debt = abs(state.finances.current)
+                    state.finances.current = 0
+
+
             # update other affected events
             for event in option.action.events:
                 for level in state.remaining:
@@ -104,15 +109,55 @@ async def change_state(game_state: UserAction, code: Dict[str, uuid.UUID] = Depe
                 state.insurance.pensionFund = True
 
     # Determine the next event to be shown
-    state.current = random.choice(state.remaining)
+
+    # state.current = random.choice(state.remaining)
+
+    remEventsCurrentPhase = []
+
+    currentPhase = state.current.phase
+
+    for lvl in state.remaining:
+        if lvl.phase == currentPhase and (lvl.probability > 0):
+            remEventsCurrentPhase.append(lvl)
+
+    if len(remEventsCurrentPhase) == 0:
+
+        # Change phase
+
+        currentPhase += 1
+
+        for lvl in state.remaining:
+            if lvl.phase == currentPhase and (lvl.probability > 0):
+                remEventsCurrentPhase.append(lvl)
+    
+    if len(remEventsCurrentPhase) == 0:
+        pass
+        # Game ends here
+
+    # state.current = random.choices(remEventsCurrentPhase, [lvl.probability for lvl in remEventsCurrentPhase])[0]
+
+    state.current = random.choice(remEventsCurrentPhase)
+    
     db.core.states.update_one(code, { "$set" : state.dict()})
     return StateInResponse(data=state.dict())
 
 
 
 
-@router.post("/finances")
-async def update_finances(db: AsyncIOMotorClient = Depends(get_database), game_code: str = Depends(verify_token)) -> StateInResponse:
-    pass
-    # finances dictionary
-    # since value
+@router.post("/finances", response_model=StateInResponse)
+async def update_finances(updatedFinances: FinanceUpdate, db: AsyncIOMotorClient = Depends(get_database), game_code: Dict[str, uuid.UUID] = Depends(verify_token)) -> StateInResponse:
+
+    # since = 12      # 12 months
+
+    _state = await db.core.states.find_one(game_code)
+    state = State(**_state)
+
+    state.finances = Finance(**updatedFinances.finances)
+
+    # state.finances.current += ( since*state.finances.salary - since*state.finances.expenditure )
+
+    db.core.states.update_one(game_code, { "$set" : state.dict()})
+
+    return StateInResponse(data=state.dict())
+
+

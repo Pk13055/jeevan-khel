@@ -18,7 +18,7 @@ class Event(Base):
     """Event modification when, and if, an action is performed"""
     id: int
     probability: Optional[float] = 0.0
-    phase: Optional[Phase]
+    phase: Optional[int]
 
 
 class Action(Base):
@@ -51,6 +51,7 @@ class Level(Base):
 
     options: List[Option] = list()
     probability: float = 0.0
-    phase: Union[Phase, List[Phase]]
+    # phase: Union[Phase, List[Phase]]
+    phase: int
 
     audio: Dict[str, str] = dict()
