@@ -1,4 +1,4 @@
-import logging
+import uuid
 
 from fastapi import Header, HTTPException
 from jose import jwt
@@ -11,6 +11,8 @@ async def verify_token(authorization: str = Header("Authorization")):
     try:
         decoded_token = jwt.decode(
             authorization, str(SECRET_KEY), algorithms=["HS256"])
+        if "code" in decoded_token:
+            decoded_token['code'] = uuid.UUID(decoded_token['code'])
         return decoded_token
     except Exception as e:
         raise HTTPException(

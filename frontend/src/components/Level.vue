@@ -41,7 +41,7 @@
                     <v-btn
                         large
                         block
-                        @click="chooseOption(option)"
+                        @click="chooseOption(option.id)"
                         :color="colors[option.id]"
                         outlined
                         class="text-h5"
@@ -79,13 +79,11 @@ export default {
         colors: ['red', 'teal', 'green', 'blue'],
     }),
     methods: {
-        async chooseOption(option) {
-            // TODO fire action to register option selection
-            // TODO update state on action execution
-            // TODO progress next level
-            console.log(option.id);
-            const { action } = option;
-            console.log(action);
+        async chooseOption(optionId) {
+            this.$store.dispatch('levels/chooseOption', {
+                levelId: this.data.id,
+                optionId,
+            });
         },
     },
     computed: {

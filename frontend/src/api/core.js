@@ -14,5 +14,22 @@ export default {
             .catch(err => {
                 throw err.isAxiosError ? err.response.data : err;
             });
+    },
+    async execAction({ levelId, optionId }) {
+        return await api
+            .post(`/api/core/update`, {
+                body: {
+                    level_id: levelId,
+                    option_id: optionId
+                }
+            })
+            .then(response => response.data)
+            .then(modState => {
+                if (!modState.success) throw new Error(modState.error);
+                return modState.data;
+            })
+            .catch(err => {
+                throw err.isAxiosError ? err.response.data : err;
+            })
     }
 }

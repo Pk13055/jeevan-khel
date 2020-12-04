@@ -14,8 +14,8 @@ export default {
                 dispatch("finance/loadState", state.finances);
                 commit("finance/ADD_INSURANCE", state.insurance);
                 commit("levels/LOAD_LEVELS", { remaining: state.remaining, completed: state.completed });
-                commit("levels/LOAD_CURRENT", state.current);
-                dispatch("levels/getRandomLevel");
+                commit("levels/LOAD_LEVEL", state.current);
+                commit("levels/LOAD_PHASE", state.current.phase);
             })
             .catch(err => console.error(err));
     },

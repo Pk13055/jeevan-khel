@@ -1,5 +1,6 @@
 import uuid
 import random
+from typing import Dict
 
 from fastapi import APIRouter, Depends, Security
 from jose import jwt
@@ -29,22 +30,15 @@ async def get_game_state(gender: Gender, code: uuid.UUID = None,
     _state = await db.core.states.find_one({"code": code})
 
     if _state is None:
-        # define new game variable
-
-        levels = db.core.levels.find()
-
         firstLevel = None
-
-        async for level in levels:
-            if level["id"] == 0:
-                firstLevel = Level(**level)
-
-        state = State(code=code, gender=gender.value, currentLevel=firstLevel)
-        
-        state.remaining = [Level(**level) async for level in levels]        # TODO: This is not working, fix
-        
+        levels = []
+        async for _level in db.core.levels.find():
+            level = Level(**_level)
+            levels.append(level)
+            if level.id == 0:
+                firstLevel = level
+        state = State(code=code, gender=gender.value, current=firstLevel, remaining=levels)
         db.core.states.insert_one(state.dict())
-
     else:
         state = State(**_state)
 
@@ -57,158 +51,62 @@ async def get_game_state(gender: Gender, code: uuid.UUID = None,
 
 
 
-@router.post("/update", response_model=StateInResponse, dependencies=[Depends(verify_token)])
-async def change_state(game_state: UserAction, db: AsyncIOMotorClient = Depends(get_database), game_code: str = Depends(verify_token)) -> StateInResponse:
-    
-    # _level = await db.core.levels.find_one({          # The level info can get modified in state.remaining
-    #     "id": game_state.level_id,                    # So, taking level info from state instead
-    #     "options.id": game_state.option_id
-    # })
+@router.post("/update", response_model=StateInResponse)
+async def change_state(game_state: UserAction, code: Dict[str, uuid.UUID] = Depends(verify_token),
+                        db: AsyncIOMotorClient = Depends(get_database)) -> StateInResponse:
+    _state = await db.core.states.find_one(code)
+    state = State(**_state)
+    current: Level = None
+    for level in state.remaining:
+        if level.id == game_state.level_id:
+            current = level
+            break
 
-    _state = await db.core.states.find_one({
-            "code": uuid.UUID(game_code["code"])
-        })
+    # move from remaining to completed
+    state.remaining.remove(current)
+    state.completed.append(current)
 
-    if _state:
+    # update finances
+    for option in current.options:
+        if option.id == game_state.option_id:
+            # check if insurance present
+            if (game_state.level_id in [14, 17]) and state.insurance.individualHealth:
+                pass
+            elif (game_state.level_id in [15]) and state.insurance.parentsHealth:
+                pass
+            elif (game_state.level_id in [14]) and state.insurance.accident:
+                pass
+            else:
+                # else, apply finance changes
+                state.finances.current += option.action.current
+                state.finances.expenditure += option.action.expenditure
+                state.finances.salary += option.action.salary
 
-        state = State(**_state)
+            # update other affected events
+            for event in option.action.events:
+                for level in state.remaining:
+                    if level.id == event.id:
+                        level.probability += event.probability
 
-        _level = None
+            # Checking for insurance
+            if (game_state.level_id in [23]) and ("Yes" in option.description):
+                state.insurance.accident = True
+            if (game_state.level_id in [24, 26]) and ("Yes" in option.description):
+                state.insurance.life = True
+            if (game_state.level_id in [25]) and ("Yes" in option.description) and ("individual" in option.description):
+                state.insurance.individualHealth = True
+            elif (game_state.level_id in [25]) and ("Yes" in option.description) and ("parents" in option.description):
+                state.insurance.parentsHealth = True
+                state.insurance.familyHealth = True
+            elif (game_state.level_id in [25]) and ("Yes" in option.description) and ("family" in option.description):
+                state.insurance.familyHealth = True
+            if (game_state.level_id in [27, 28, 29]) and ("Yes" in option.description):
+                state.insurance.pensionFund = True
 
-        for lvl in state.remaining:
-
-            if lvl.id == game_state.level_id:
-                _level = lvl
-
-        if _level:
-
-            current_options = _level.options
-
-            # move from remaining to completed
-
-            state.remaining.remove(_level)
-            state.completed.append(_level)
-
-
-            """
-            TODO: An API route for updating finances according to time elapsed
-
-            TODO: Increase salary and expenditure WHEN THE PHASE CHANGES
-
-            TODO: Check if the game is too easy -- if so, reduce salary
-
-            """
-
-            # update finances
-
-            current_options = _level.options
-
-            for option in current_options:
-                
-                if option.id == game_state.option_id:
-
-                    # Checking if insurance was taken for injury/illness events, in that case, don't modify current
-                    
-                    if (game_state.level_id in [14, 17]) and state.insurance.individualHealth == True:
-                        pass
-                        # Finances not affected
-
-                    elif (game_state.level_id in [15]) and state.insurance.parentsHealth == True:
-                        pass
-                        # Finances not affected
-                    
-                    elif (game_state.level_id in [14]) and state.insurance.accident == True:
-                        pass
-                        # Finances not affected
-
-                    else:
-                        state.finances.current += option.action.current
-                        state.finances.expenditure += option.action.expenditure
-                        state.finances.salary += option.action.salary
-
-                    # update other affected events
-
-                    affectedEvents = option.action.events
-
-                    if len(affectedEvents) > 0:
-                        for event in affectedEvents:
-                            for i in range(len(state.remaining)):
-                                if state.remaining[i].id == event.id:
-                                    state.remaining[i].probability += event.probability
-
-                    # Checking for insurance
-
-                    # NOTE: Premium amount has already been added to expenditure
-
-                    if (game_state.level_id in [23]) and ("Yes" in option.description):
-                        state.insurance.accident = True
-                    
-                    if (game_state.level_id in [24, 26]) and ("Yes" in option.description):
-                        state.insurance.life = True
-                    
-                    if (game_state.level_id in [25]) and ("Yes" in option.description) and ("individual" in option.description):
-                        state.insurance.individualHealth = True
-
-                    elif (game_state.level_id in [25]) and ("Yes" in option.description) and ("parents" in option.description):
-                        state.insurance.parentsHealth = True
-                        state.insurance.familyHealth = True
-
-                    elif (game_state.level_id in [25]) and ("Yes" in option.description) and ("family" in option.description):
-                        state.insurance.familyHealth = True
-                    
-                    if (game_state.level_id in [27, 28, 29]) and ("Yes" in option.description):
-                        state.insurance.pensionFund = True
-
-        # Determine the next event to be shown
-
-        remEventsCurrentPhase = []
-
-        currentPhase = state.currentLevel.phase.value
-
-        for lvl in state.remaining:
-            if lvl.phase.value == currentPhase:
-                remEventsCurrentPhase.append(lvl)
-
-        if len(remEventsCurrentPhase) == 0:
-
-            # Change phase
-
-            currentPhase += 1
-
-            for lvl in state.remaining:
-                if lvl.phase.value == currentPhase:
-                    remEventsCurrentPhase.append(lvl)
-
-        state.currentLevel = random.choices(remEventsCurrentPhase, [lvl.probability for lvl in remEventsCurrentPhase])[0]
-
-        # Update state in database
-
-        for i in range(len(state.remaining)):
-            state.remaining[i] = state.remaining[i].dict()
-
-        for i in range(len(state.completed)):
-            state.completed[i] = state.completed[i].dict()
-
-        db.core.states.update_one(
-            { "code": uuid.UUID(game_code["code"]) },
-            { 
-                "$set" : {
-                            "finances.current" : state.finances.current,
-                            "finances.expenditure" : state.finances.expenditure,
-                            "finances.salary" : state.finances.salary,
-                            "completed" : state.completed,
-                            "remaining" : state.remaining,
-                            "insurance.accident" : state.insurance.accident,
-                            "insurance.life" : state.insurance.life,
-                            "insurance.individualHealth" : state.insurance.individualHealth,
-                            "insurance.familyHealth" : state.insurance.familyHealth,
-                            "insurance.pensionFund" : state.insurance.pensionFund,
-                            "currentLevel" : state.currentLevel
-                        }
-            }
-        )
-
-        return StateInResponse(data=state)
+    # Determine the next event to be shown
+    state.current = random.choice(state.remaining)
+    db.core.states.update_one(code, { "$set" : state.dict()})
+    return StateInResponse(data=state.dict())
 
 
 

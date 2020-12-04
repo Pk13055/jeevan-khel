@@ -5,7 +5,7 @@ const state = () => ({
 });
 
 const getters = {
-    // TODO add getters for each property
+    //
 };
 
 const actions = {

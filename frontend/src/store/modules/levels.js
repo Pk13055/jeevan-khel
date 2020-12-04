@@ -1,3 +1,5 @@
+import api from "../../api/core";
+
 const state = () => ({
     remaining: [],
     completed: [],
@@ -18,10 +20,18 @@ const getters = {
 };
 
 const actions = {
-    async getRandomLevel({ commit, getters }) {
-        let possibles = getters.availableLevels;
-        // TODO add probability weighting instead of random
-        commit("LOAD_LEVEL", possibles[possibles.length * Math.random() | 0]);
+    async chooseOption({ commit, dispatch }, { levelId, optionId }) {
+        await api
+            .execAction({ levelId, optionId })
+            .then(state => {
+                dispatch("finance/loadState", state.finances, { root: true });
+                commit("finance/ADD_INSURANCE", state.insurance, { root: true });
+                commit("LOAD_LEVELS", { remaining: state.remaining, completed: state.completed });
+                commit("LOAD_LEVEL", state.current);
+                commit("LOAD_PHASE", state.current.phase);
+                // TODO progress conveyor
+            })
+            .catch(err => console.error(err));
     }
 };
 
@@ -30,7 +40,7 @@ const mutations = {
         state.remaining = remaining;
         state.completed = completed;
     },
-    LOAD_CURRENT: (state, phase) => {
+    LOAD_PHASE: (state, phase) => {
         state.phase = phase;
     },
     LOAD_LEVEL: (state, level) => {

@@ -15,11 +15,11 @@ class Gender(str, Enum):
 
 class Finance(Base):
     """Financial aspect of a user"""
-    current: float = 20000
-    expenditure: float = 5000
-    salary: float = 10000.0
+    current: float = 0.0
+    expenditure: float = 0.0
+    salary: float = 0.0
     debt: float = 0.0
-    bank: float = 6
+    bank: float = 6.0
     interest: float = 3.5
 
 
@@ -43,5 +43,4 @@ class State(Base):
     finances: Finance = Finance()
     completed: List[Level] = list()
     remaining: List[Level] = list()
-    # current: Phase = Phase.phase1
-    currentLevel: Level
+    current: Level
