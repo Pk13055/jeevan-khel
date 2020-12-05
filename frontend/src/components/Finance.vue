@@ -180,14 +180,14 @@ export default {
                 this.transfer <= this.current &&
                 this.transfer <= this.debt
             ) {
-                this.current -= this.transfer;
-                this.debt -= this.transfer;
+                let current = this.current - this.transfer,
+                    debt = this.debt - this.transfer;
                 let expenditure = this.expenditure,
                     salary = this.salary;
                 await api
                     .updateCosts({
-                        current: this.current,
-                        debt: this.debt,
+                        current,
+                        debt,
                         expenditure,
                         salary,
                         ...this.rates,
