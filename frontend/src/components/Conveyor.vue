@@ -51,12 +51,11 @@
 import { mapState } from 'vuex';
 export default {
     name: 'Conveyor',
-    props: ['loc'],
     data: () => ({
         //
     }),
     computed: {
-        ...mapState('levels', ['phase', 'progress']),
+        ...mapState('levels', ['phase', 'progress', 'loc']),
         ...mapState(['gender']),
     },
 };

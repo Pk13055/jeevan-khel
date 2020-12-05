@@ -4,6 +4,7 @@ const state = () => ({
     remaining: [],
     completed: [],
     phase: 1,
+    loc: 0,
     current: {}
 });
 
@@ -44,13 +45,16 @@ const actions = {
 
                 commit("LOAD_LEVEL", state.current);
                 commit("LOAD_PHASE", state.current.phase);
-                // TODO progress conveyor
+                commit("PROGRESS_MOTION");
             })
             .catch(err => console.error(err));
     }
 };
 
 const mutations = {
+    PROGRESS_MOTION: state => {
+        state.loc = (state.loc < 8) ? state.loc + 1 : 0;
+    },
     LOAD_LEVELS: (state, { remaining, completed }) => {
         state.remaining = remaining;
         state.completed = completed;
