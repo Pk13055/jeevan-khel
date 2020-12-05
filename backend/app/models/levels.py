@@ -48,7 +48,7 @@ class Level(Base):
     title: Optional[str]
     description: Dict[str, str] = dict()
     image: Optional[str]
-
+    since: int = 12
     options: List[Option] = list()
     probability: float = 0.0
     # phase: Union[Phase, List[Phase]]

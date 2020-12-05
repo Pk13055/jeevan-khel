@@ -1,7 +1,7 @@
 from typing import Optional, List, Dict, Union
 
 from .base import Base
-from .user import State
+from .user import Finance, State
 
 import uuid
 
@@ -21,6 +21,3 @@ class UserAction(Base):
     # code: str
     level_id: int
     option_id: int
-
-class FinanceUpdate(Base):
-    finances : dict

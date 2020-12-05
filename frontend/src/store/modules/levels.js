@@ -24,9 +24,24 @@ const actions = {
         await api
             .execAction({ levelId, optionId })
             .then(state => {
-                dispatch("finance/loadState", state.finances, { root: true });
                 commit("finance/ADD_INSURANCE", state.insurance, { root: true });
                 commit("LOAD_LEVELS", { remaining: state.remaining, completed: state.completed });
+                dispatch("finance/loadState", state.finances, { root: true });
+
+                const { bank, interest, ...costs } = state.finances;
+                let durM = state.current.since;
+                // debt update at given interest
+                costs.debt += (costs.debt * interest / 100) * durM;
+                // update current based on expenditure and salary
+                costs.current += (costs.salary - costs.expenditure) * durM;
+                let finances = { ...costs, ...{ bank, interest } };
+                api
+                    .updateCosts(finances)
+                    .then(newFin => {
+                        dispatch("finance/loadState", newFin.finances, { root: true });
+                    })
+                    .catch(err => console.error(err));
+
                 commit("LOAD_LEVEL", state.current);
                 commit("LOAD_PHASE", state.current.phase);
                 // TODO progress conveyor

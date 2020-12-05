@@ -5,7 +5,8 @@ const state = () => ({
 });
 
 const getters = {
-    //
+    getRates: state => { return state.rates; },
+    getCosts: state => { return state.costs; },
 };
 
 const actions = {
@@ -13,7 +14,7 @@ const actions = {
         const { bank, interest, ...costs } = finances;
         commit("ADD_COSTS", costs);
         commit("ADD_INTEREST", { bank, interest });
-    }
+    },
 };
 
 const mutations = {

@@ -30,6 +30,20 @@ export default {
             })
             .catch(err => {
                 throw err.isAxiosError ? err.response.data : err;
+            });
+    },
+    async updateCosts(finances) {
+        return await api
+            .post(`/api/core/finances`, {
+                body: finances
             })
+            .then(response => response.data)
+            .then(finances => {
+                if (!finances.success) throw new Error(finances.error);
+                return finances.data;
+            })
+            .catch(err => {
+                throw err.isAxiosError ? err.response.data : err;
+            });
     }
 }

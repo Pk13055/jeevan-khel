@@ -35,6 +35,20 @@
             </v-list-item>
             <v-list-item three-line>
                 <v-list-item-content>
+                    <v-list-item-title>Salary</v-list-item-title>
+                    <v-list-item-subtitle>
+                        Monthly income
+                    </v-list-item-subtitle>
+                    <v-list-item-subtitle>
+                        This amount is added to your balance every month
+                    </v-list-item-subtitle>
+                    <v-chip outlined color="info" class="text-subtitle">
+                        {{ salary }}
+                    </v-chip>
+                </v-list-item-content>
+            </v-list-item>
+            <v-list-item three-line>
+                <v-list-item-content>
                     <v-list-item-title>Running Debt</v-list-item-title>
                     <v-list-item-subtitle>
                         Amount you owe
@@ -49,7 +63,6 @@
                         {{ debt }}
                     </v-chip>
                 </v-list-item-content>
-                <!-- TODO add salary -->
             </v-list-item>
         </v-list>
         <v-divider></v-divider>
@@ -102,7 +115,24 @@
                     ></v-text-field>
                 </v-list-item-content>
             </v-list-item>
-            <!-- TODO add insurance box -->
+        </v-list>
+        <v-list flat dense>
+            <v-subheader class="font-weight-bold text-overline"
+                >Insurances</v-subheader
+            >
+            <v-list-item
+                v-for="insurance in Object.keys(insurances)"
+                :key="insurance"
+            >
+                <v-list-item-content>
+                    <v-list-item-title>{{ insurance }}</v-list-item-title>
+                    <v-checkbox
+                        v-model="insurances[insurance]"
+                        readonly
+                        hide-details
+                    ></v-checkbox>
+                </v-list-item-content>
+            </v-list-item>
         </v-list>
         <template v-slot:append>
             <div class="pa-2">
@@ -128,7 +158,7 @@ export default {
             expenditure: state => state.costs.expenditure,
             salary: state => state.costs.salary,
             rates: state => state.rates,
-            insurance: state => state.insurance,
+            insurances: state => state.insurances,
         }),
     },
 };
