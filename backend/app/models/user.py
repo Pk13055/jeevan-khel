@@ -25,13 +25,14 @@ class Finance(Base):
 
 class Insurance(Base):
     """Flags to check whether insurance has been taken"""
-    house: bool = False
+    # house: bool = False
     individualHealth: bool = False
     familyHealth: bool = False
     parentsHealth: bool = False
     life: bool = False
     accident: bool = False
     pensionFund: bool = False
+    pensionAmount: int = 0
 
 
 class State(Base):

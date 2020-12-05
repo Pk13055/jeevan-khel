@@ -109,6 +109,12 @@ async def change_state(game_state: UserAction, code: Dict[str, uuid.UUID] = Depe
                 state.insurance.familyHealth = True
             if (game_state.level_id in [27, 28, 29]) and ("Yes" in option.description):
                 state.insurance.pensionFund = True
+                if "1000" in option.description:
+                    state.insurance.pensionAmount = 1000
+                elif "2000" in option.description:
+                    state.insurance.pensionAmount = 2000
+                elif "3000" in option.description:
+                    state.insurance.pensionAmount = 3000
 
     # Determine the next event to be shown
 
@@ -163,3 +169,10 @@ async def update_finances(updatedFinances: FinanceUpdate, db: AsyncIOMotorClient
     return StateInResponse(data=state.dict())
 
 
+
+
+
+@router.post("/summary")
+async def get_summary(db: AsyncIOMotorClient = Depends(get_database), game_code: Dict[str, uuid.UUID] = Depends(verify_token)):
+    _state = await db.core.states.find_one(game_code)
+    state = State(**_state)

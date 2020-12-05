@@ -14,6 +14,7 @@ class ResponseBase(Base):
 
 class StateInResponse(ResponseBase):
     data: State
+    
 
 class UserAction(Base):
     # code: uuid.UUID
