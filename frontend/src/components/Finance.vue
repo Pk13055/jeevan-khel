@@ -75,13 +75,20 @@
                     <v-list-item-title>Pay Debt</v-list-item-title>
                     <v-list-item-subtitle> </v-list-item-subtitle>
                     <v-list-item-subtitle>
-                        <v-btn block text small color="error" class="ma-0 pa-0"
+                        <v-btn
+                            block
+                            text
+                            small
+                            @click="payDebt"
+                            color="error"
+                            class="ma-0 pa-0"
                             >Current -> Debt</v-btn
                         >
                     </v-list-item-subtitle>
                     <v-text-field
                         flat
                         dense
+                        v-model="transfer"
                         label="Amount"
                         rounded
                         outlined
@@ -102,6 +109,7 @@
                             text
                             small
                             color="success"
+                            @click="applyLoan"
                             class="ma-0 pa-0"
                             >Apply</v-btn
                         >
@@ -109,6 +117,7 @@
                     <v-text-field
                         flat
                         dense
+                        v-model="loanAmt"
                         label="Amount"
                         rounded
                         outlined
@@ -145,11 +154,13 @@
 </template>
 <script>
 import { mapState } from 'vuex';
+import api from '../api/core';
 export default {
     name: 'Finance',
     props: ['open'],
     data: () => ({
-        //
+        loanAmt: 0,
+        transfer: 0,
     }),
     computed: {
         ...mapState('finance', {
@@ -160,6 +171,63 @@ export default {
             rates: state => state.rates,
             insurances: state => state.insurances,
         }),
+    },
+    methods: {
+        async payDebt() {
+            if (
+                this.debt &&
+                this.transfer > 0 &&
+                this.transfer <= this.current &&
+                this.transfer <= this.debt
+            ) {
+                this.current -= this.transfer;
+                this.debt -= this.transfer;
+                let expenditure = this.expenditure,
+                    salary = this.salary;
+                await api
+                    .updateCosts({
+                        current: this.current,
+                        debt: this.debt,
+                        expenditure,
+                        salary,
+                        ...this.rates,
+                    })
+                    .then(newFin => {
+                        this.$store.dispatch(
+                            'finance/loadState',
+                            newFin.finances
+                        );
+                        this.transfer = 0;
+                    })
+                    .catch(err => console.error(err));
+            }
+        },
+        async applyLoan() {
+            if (this.loanAmt > 0) {
+                let current = this.current + this.loanAmt;
+                let expenditure =
+                        this.expenditure +
+                        (this.loanAmt * (1 + this.rates.bank / 100)) /
+                            (12 * 10),
+                    salary = this.salary;
+                await api
+                    .updateCosts({
+                        current,
+                        debt: this.debt,
+                        expenditure,
+                        salary,
+                        ...this.rates,
+                    })
+                    .then(newFin => {
+                        this.$store.dispatch(
+                            'finance/loadState',
+                            newFin.finances
+                        );
+                        this.loanAmt = 0;
+                    })
+                    .catch(err => console.error(err));
+            }
+        },
     },
 };
 </script>
